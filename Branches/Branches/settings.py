@@ -77,11 +77,11 @@ WSGI_APPLICATION = 'Branches.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'branches_db',
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': 'localhost',
-        'PORT': ''
+        "NAME": "branch_db",
+        "USER": "root",
+        "PASSWORD": "branches_password3",
+        "HOST": "localhost",
+        "PORT": "3306"
     }
 }
 
@@ -125,7 +125,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "static")
+    os.path.join(BASE_DIR, "static"),
 )
 
 # Default primary key field type
