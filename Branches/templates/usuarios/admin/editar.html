@@ -1,0 +1,18 @@
+<h1>editar.html</h1>
+
+<title>Editar Usuarios</title>
+
+{% include "includes/form_errors.html" %}
+
+<form method="post">{% csrf_token %}
+
+    {{form.as_p}}
+    
+    <div class="row">
+        <div class="col">
+            <button type="submit">Guardar</button>
+            <button type="button"> <a href="{% url 'usuarios:admin_listar' %}"> Cancelar</a> </button>
+        </div>
+    </div>
+
+</form>

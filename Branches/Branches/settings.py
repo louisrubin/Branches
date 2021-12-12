@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+#from django.urls import reverse
+from django.urls.base import reverse_lazy
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -29,6 +31,12 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+LOGIN_URL = reverse_lazy('inicio')
+LOGIN_REDIRECT_URL = reverse_lazy('inicio')     # donde redirecciona al loguarte
+
+
+AUTH_USER_MODEL = 'usuarios.Usuario'
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -38,6 +46,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'apps.usuarios',
+    'apps.posts',
 ]
 
 MIDDLEWARE = [
@@ -108,7 +118,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-ar'
 
 TIME_ZONE = 'UTC'
 

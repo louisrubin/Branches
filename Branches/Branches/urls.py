@@ -1,4 +1,4 @@
-"""Branches URL Configuration
+"""ejemplo1 URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.2/topics/http/urls/
@@ -14,15 +14,22 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
-from . import views
+from . import views     # importo el archivo views.py que creamos 
+from django.contrib.auth import views as auth
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', views.inicio, name= 'inicio'),
+    path('admin/', admin.site.urls, name = 'admin'),
+    #path('', views.inicio, name = 'inicio'),     # views. + (funcion en el archivo 'views.py' que retorna un render)
+    path('login/', auth.LoginView.as_view(template_name= 'login.html'), name = 'login'),
+    path('logout/', auth.logout_then_login, name= 'logout'),
 
-    path('login/', views.login, name= 'login'),
+    path("", views.Inicio.as_view(), name='inicio'),
 
-    path('registro/', views.registro, name='registro')
+
+    # Includes
+
+    path('usuarios/', include('apps.usuarios.urls')),
+    path('posts/', include('apps.posts.urls')),
 ]

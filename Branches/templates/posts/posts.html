@@ -1,0 +1,39 @@
+<h1>  posts.html  </h1>
+
+
+
+<div class="row" style="padding: 10px;">
+    <div class="col">
+        
+        <button type="button"> <a href="{% url 'posts:agregar_posts' %}">Agregar</a> </button>
+        <button type="button"> <a href="{% url 'inicio' %}">ir al inicio</a> </button>
+    </div>
+</div>
+
+<table>
+    <thead>
+            <th scope="col">Id</th>
+            <th scope="col">titulo</th>
+            <th scope="col">descripcion</th>
+            <th scope="col">fecha</th>
+            <th scope="col">accion</th>
+    </thead>
+
+        {% for x in posts %}
+            <tr>
+                <th scope="row">{{x.id}}</th>
+                <td>{{x.titulo}}</th>
+                <td>{{x.descripcion}}</th>
+                <td>{{x.fecha}}</th>
+                <td>
+                    <a href="">Ver</a>
+                    <a href="">Editar</a>
+                    <a href="">Eliminar</a>
+                </td>
+            </tr>
+        {% endfor %}
+
+    <tbody>
+
+    </tbody>
+</table>

@@ -1,5 +1,26 @@
-{% load static %}
+{% extends 'base/base.html' %}
 
-<!-- <link href= "{% static 'css/login.css' %}" rel="stylesheet" -->
+{% block titulo %}<title>desarrollo web</title>{% endblock titulo %}
 
-<h1>index.html</h1>
+{% block contenido %}
+	{% if user.is_authenticated%}
+		<button type="button"> <a href="{% url 'logout' %}">Cerrar sesion</a> </button>
+			
+
+	{%else%}
+		<button type="button"> <a href="{% url 'login' %}">Iniciar sesion</a> </button>
+	{%endif%}
+
+
+	<button type="submit">  <a href="{% url 'usuarios:registro' %}">Registrarse</a>  </button>
+
+
+	{% if user.is_authenticated%}
+			<h5>Inicio: {{informacion}}</h1>
+			<h1>hola {{ user.get_full_name }}</h2>
+
+	{%else%}
+			<h1>bienvenido a mi sitio</h1>
+	{%endif%}
+
+{% endblock contenido %}

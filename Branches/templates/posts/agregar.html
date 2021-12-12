@@ -1,0 +1,17 @@
+{% block titulo %}<title>Agregar Post</title>{% endblock titulo %}
+
+<h1>nuevo.html</h1>
+
+{% include "includes/form_errors.html" %}
+
+<form method="post">{% csrf_token %}
+    {{form.as_p}}
+    
+    <div class="row">
+        <div class="col">
+            <button type="submit">Guardar</button>
+            <button type="button"> <a href="{% url 'posts:inicio_post' %}"> Cancelar</a> </button>
+        </div>
+    </div>
+
+</form>
