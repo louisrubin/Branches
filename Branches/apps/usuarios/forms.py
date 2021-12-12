@@ -30,10 +30,12 @@ class RegistroForm(UserCreationForm):
             'first_name',
             'last_name',
             'email',
+            'fecha_nacimiento',
             ]
         labels = {
             'username': 'Nombre de Usuario',
             'first_name': 'Nombre',
             'last_name': 'Apellido',
             'email': 'Correo',
+            'fecha_nacimiento': 'Fecha de Nacimiento',
             }
