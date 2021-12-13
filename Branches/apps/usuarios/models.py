@@ -1,12 +1,11 @@
 from django.db import models
 from django.db.models.fields import CharField, IntegerField
+import datetime as dt
 
 # Create your models here.
 
 from django.contrib.auth.models import AbstractUser
 
-def calcular_edad(fecha):
-    pass
 
 class Usuario(AbstractUser):
     fecha_nacimiento = models.DateTimeField(null=True)
@@ -23,3 +22,5 @@ class Usuario(AbstractUser):
         else:
             return "[ ... ]"
 
+    
+    

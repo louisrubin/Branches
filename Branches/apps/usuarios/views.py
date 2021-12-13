@@ -5,7 +5,7 @@ from django.views.generic import ListView, CreateView
 from django.views.generic.edit import UpdateView
 
 # Create your views here.
-from .forms import ProductoForm, RegistroForm
+from .forms import UsuarioForm, RegistroForm
 from .models import Usuario
 
 def usuarios(request):
@@ -25,7 +25,7 @@ class ListarAdmin(ListView):
 class Nuevo_only_Admin(CreateView):
     template_name= "usuarios/admin/nuevo.html"
     model = Usuario
-    form_class = ProductoForm
+    form_class = UsuarioForm
 
     def get_success_url(self, **kwargs) -> str:
         return reverse_lazy("usuarios:admin_listar")
@@ -35,7 +35,7 @@ class Nuevo_only_Admin(CreateView):
 class Editar_only_Admin(UpdateView):
     template_name= "usuarios/admin/editar.html"
     model = Usuario
-    form_class = ProductoForm
+    form_class = UsuarioForm
 
     def get_success_url(self, **kwargs) -> str:
         return reverse_lazy("usuarios:admin_listar")

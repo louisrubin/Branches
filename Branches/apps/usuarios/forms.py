@@ -4,7 +4,7 @@ from django.db import models
 
 from .models import Usuario
 
-class ProductoForm(forms.ModelForm):
+class UsuarioForm(forms.ModelForm):
     #nombre = forms.CharField(label="Nombre de Usuario", widget=forms.TextInput(attrs={'class':'form-control'}))
     class Meta:
         model = Usuario
@@ -30,12 +30,10 @@ class RegistroForm(UserCreationForm):
             'first_name',
             'last_name',
             'email',
-            'fecha_nacimiento',
             ]
         labels = {
             'username': 'Nombre de Usuario',
             'first_name': 'Nombre',
             'last_name': 'Apellido',
             'email': 'Correo',
-            'fecha_nacimiento': 'Fecha de Nacimiento',
             }
