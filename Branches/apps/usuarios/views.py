@@ -48,3 +48,11 @@ class RegistroUsuario(CreateView):
     form_class = RegistroForm
 
     success_url = reverse_lazy("login")
+
+
+class PerfilUsuario(ListView):
+    template_name = "usuarios/perfil.html"
+    model = Usuario
+    form_class = UsuarioForm
+
+    context_object_name = "usuario_data"
