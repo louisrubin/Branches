@@ -3,6 +3,7 @@
 {% block titulo %}<title>desarrollo web</title>{% endblock titulo %}
 
 {% block contenido %}
+<!--
 	{% if user.is_authenticated%}
 		<button type="button"> <a href="{% url 'logout' %}">Cerrar sesion</a> </button>
 			
@@ -13,7 +14,7 @@
 
 
 	<button type="submit">  <a href="{% url 'usuarios:registro' %}">Registrarse</a>  </button>
-
+-->
 
 	{% if user.is_authenticated%}
 			<h5>Inicio: {{informacion}}</h1>
@@ -22,5 +23,17 @@
 	{%else%}
 			<h1>bienvenido a mi sitio</h1>
 	{%endif%}
+
+	
+    <div class="container">
+		<header class="d-flex justify-content-center py-3">
+		  <ul class="nav nav-pills">
+			<li class="nav-item"><a href="{% url 'inicio' %}" class="nav-link active" aria-current="page">Home</a></li>
+			{% if user.is_superuser %}
+			<li class="nav-item"><a href="{% url 'usuarios:admin_listar' %}" class="nav-link">Usuarios</a></li>
+			{% endif %}
+		  </ul>
+		</header>
+	  </div>
 
 {% endblock contenido %}
