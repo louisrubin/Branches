@@ -59,11 +59,11 @@
 			<form method="POST">{% csrf_token %}
 
 				
-				{% for row in form %}
+				{% for f in form %}
 
 				<div class="col-12" style="padding-bottom: 15px;">
-					{{row.label}}
-					{{row}}
+					{{f.label}}
+					{{f}}
 				</div>
 
 				{% endfor %}

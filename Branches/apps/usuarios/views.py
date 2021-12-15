@@ -2,7 +2,7 @@ from django.db import models
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView
-from django.views.generic.edit import UpdateView
+from django.views.generic.edit import DeleteView, UpdateView, DeleteView
 
 # Create your views here.
 from .forms import UsuarioForm, RegistroForm
@@ -21,7 +21,7 @@ class ListarAdmin(ListView):
         # self.request
         return Usuario.objects.all().order_by("id")
     
-
+"""
 class Nuevo_only_Admin(CreateView):
     template_name= "usuarios/admin/nuevo.html"
     model = Usuario
@@ -29,7 +29,7 @@ class Nuevo_only_Admin(CreateView):
 
     def get_success_url(self, **kwargs) -> str:
         return reverse_lazy("usuarios:admin_listar")
-
+"""
 
 
 class Editar_only_Admin(UpdateView):
@@ -37,8 +37,7 @@ class Editar_only_Admin(UpdateView):
     model = Usuario
     form_class = UsuarioForm
 
-    def get_success_url(self, **kwargs) -> str:
-        return reverse_lazy("usuarios:admin_listar")
+    success_url = reverse_lazy("usuarios:admin_listar")
 
 
 
@@ -56,3 +55,10 @@ class PerfilUsuario(ListView):
     form_class = UsuarioForm
 
     context_object_name = "usuario_data"
+
+
+class Delete_User(DeleteView):
+    template_name = "usuarios/admin/delete_user.html"
+    model = Usuario
+
+    success_url = reverse_lazy("usuarios:admin_listar")

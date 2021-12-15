@@ -1,18 +1,23 @@
-<h1>editar.html</h1>
-
+{% extends 'base/base.html' %}
 <title>Editar Usuarios</title>
 
-{% include "includes/form_errors.html" %}
+{% block contenido %}
+   
+    {% include "includes/form_errors.html" %}
 
-<form method="post">{% csrf_token %}
+    <form method="post">{% csrf_token %}
 
-    {{form.as_p}}
-    
-    <div class="row">
-        <div class="col">
-            <button type="submit">Guardar</button>
-            <button type="button"> <a href="{% url 'usuarios:admin_listar' %}"> Cancelar</a> </button>
+        {{form.as_p}}
+        
+        <div class="row">
+            <div class="col">
+                <button type="submit">Guardar</button>
+                <button type="button"> <a href="{% url 'usuarios:admin_listar' %}"> Cancelar</a> </button>
+            </div>
         </div>
-    </div>
 
-</form>
+    </form>
+
+{% endblock contenido %}
+    
+
