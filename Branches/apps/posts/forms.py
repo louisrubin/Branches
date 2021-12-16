@@ -12,6 +12,7 @@ class PostForm(forms.ModelForm):
         fields = ('titulo',
                 'descripcion',
                 'es_borrador',
+                'usuario',
                 )
         labels = {
                 'titulo':'Titulo',

@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView
 
@@ -17,10 +16,9 @@ class Inicio_Posts(ListView):
         # self.request
         return Post.objects.all().order_by("id")
 
-class AgregarPost(CreateView):
-    template_name= "posts/agregar.html"
+class Agregar_Post(CreateView):
+    template_name= "posts/new_post.html"
     model = Post
     form_class = PostForm
 
-    def get_success_url(self, **kwargs) -> str:
-        return reverse_lazy("posts:inicio_posts")
+    success_url = reverse_lazy("posts:inicio_posts")

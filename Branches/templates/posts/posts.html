@@ -6,17 +6,18 @@
     <div class="col">
         
         <button type="button"> <a href="{% url 'posts:agregar_posts' %}">Agregar</a> </button>
-        <button type="button"> <a href="{% url 'inicio' %}">ir al inicio</a> </button>
+        <button type="button"> <a href="{% url 'inicio' %}">Ir al inicio</a> </button>
     </div>
 </div>
 
 <table>
     <thead>
             <th scope="col">Id</th>
-            <th scope="col">titulo</th>
-            <th scope="col">descripcion</th>
-            <th scope="col">fecha</th>
-            <th scope="col">accion</th>
+            <th scope="col">Título</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Usuario</th>
+            <th scope="col">Acción</th>
     </thead>
 
         {% for x in posts %}
@@ -25,6 +26,7 @@
                 <td>{{x.titulo}}</th>
                 <td>{{x.descripcion}}</th>
                 <td>{{x.fecha}}</th>
+                <td>{{x.usuario}}</th>
                 <td>
                     <a href="">Ver</a>
                     <a href="">Editar</a>

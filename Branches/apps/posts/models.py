@@ -1,14 +1,17 @@
 from django.db import models
 from django.db.models.fields import CharField, DateTimeField, BooleanField
+from django.db.models.fields.related import ForeignKey
+#from datetime import datetime  
 
-# Create your models here.
-
+from apps.usuarios.models import Usuario
 
 class Post(models.Model):
     titulo = models.CharField(max_length=50)
-    descripcion = models.CharField(max_length=300)
-    fecha = models.DateTimeField()
-    es_borrador = models.BooleanField()
+    descripcion = models.TextField()
+    fecha = models.DateTimeField(auto_now_add=True, blank=True)
+    es_borrador = models.BooleanField(default=False)
+
+    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, null= True)
 
     # foto = models.ImageField()
 
