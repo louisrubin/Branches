@@ -14,13 +14,15 @@ class UsuarioForm(forms.ModelForm):
                 'email',
                 'is_superuser',
                 'writer',
+                'comment',
                 ]
         labels = {"username": "Nombre de Usuario", 
                 "first_name": "Nombre", 
                 'last_name': 'Apellido',
                 'email': 'Correo',
                 'is_superuser': 'Admin',
-                'writer': 'Escritor'
+                'comment': 'Puede Comentar',
+                'writer': 'Escritor',
                 }
 
 
