@@ -1,5 +1,5 @@
 from django.db import models
-from django.db.models.fields import CharField, IntegerField
+from django.db.models.fields import BooleanField, CharField, IntegerField
 import datetime as dt
 
 # Create your models here.
@@ -8,7 +8,7 @@ from django.contrib.auth.models import AbstractUser
 
 
 class Usuario(AbstractUser):
-    fecha_nacimiento = models.DateTimeField(null=True)
+    writer = models.BooleanField(default=False)
 
     # foto = models.ImageField()
 

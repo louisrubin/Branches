@@ -1,17 +1,25 @@
+{% extends 'base/base.html' %}
 
-{% include "includes/form_errors.html" %}
 
-<form method="post">{% csrf_token %}
-    {{form.as_p}}
+{% block contenido %}
     
-    <div class="row">
-        <div class="col">
-            <button type="submit">Guardar</button>
+    {% include "includes/form_errors.html" %}
+
+    <form method="post">{% csrf_token %}
+        {{form.as_p}}
+        
+        <div class="row">
+            <div class="col">
+                <button type="submit">Guardar</button>
+            </div>
         </div>
-    </div>
 
-</form>
+    </form>
 
-<!-- <a href="{ url 'posts:inicio_post' }">
-    <button type="button"> Cancelar </button>
-</a> -->
+    <!-- <a href="{ url 'posts:inicio_post' }">
+        <button type="button"> Cancelar </button>
+    </a> -->
+
+    
+{% endblock contenido %}
+    

@@ -13,8 +13,8 @@
 <table>
     <thead>
             <th scope="col">Id</th>
-            <th scope="col">Título</th>
-            <th scope="col">Descripción</th>
+            <th scope="col">Cuerpo</th>
+            <!-- <th scope="col">Descripción</th> -->
             <th scope="col">Fecha</th>
             <th scope="col">Usuario</th>
             <th scope="col">Acción</th>
@@ -23,10 +23,10 @@
         {% for x in posts %}
             <tr>
                 <th scope="row">{{x.id}}</th>
-                <td>{{x.titulo}}</th>
-                <td>{{x.descripcion}}</th>
-                <td>{{x.fecha}}</th>
-                <td>{{x.usuario}}</th>
+                <td>{{x.cuerpo}}</th>
+                <!-- <td>{{x.descripcion}}</th> -->
+                <td>{{x.fecha_creacion}}</th>
+                <td>{{x.autor}}</th>
                 <td>
                     <a href="">Ver</a>
                     <a href="">Editar</a>
@@ -38,4 +38,15 @@
     <tbody>
 
     </tbody>
+
+<!--     
+<form method="POST">
+	{% csrf_token %}
+
+	{{form.cuerpo}}
+
+	<button type="submit"> Publicar </button>
+
+</form> -->
+
 </table>

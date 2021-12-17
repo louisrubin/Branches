@@ -6,8 +6,8 @@
       </a>
 
       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-        <img src="static/B-50px.png" alt="" >
-        <li><a href="" class="nav-link px-2 text-secondary" >Inicio</a></li>
+        <img src="static/B-50px.png">
+        <li><a href="{% url 'inicio' %}" class="nav-link px-2 text-white" >Inicio</a></li>
         
         {% if user.is_superuser %}
         <li><a href="{% url 'usuarios:admin_listar' %}" class="nav-link px-2 text-white">Usuarios</a></li>
@@ -18,34 +18,45 @@
         <li><a href="#" class="nav-link px-2 text-white">About</a></li>
       </ul>
 
+      
+      {% if user.is_authenticated and user.is_superuser or user.writer %}
+        <a href="{% url 'posts:agregar_posts' %}" >
+          <button type="button"  class="btn btn-outline-light me-5"> 
+            <img src="static/plus-lg.svg"> Nuevo Post
+          </button>
+        </a>
+      
+      {% endif %}
+
       <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-        <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
+        <input type="search" class="form-control form-control-dark" placeholder="Buscar..." aria-label="Search">
       </form>
 
       <div class="text-end">
         
         {% if not user.is_authenticated %}
 
-      <a href="{% url 'login' %}">
-				<button type="button" class="btn btn-outline-light me-2">Iniciar Sesion</button>
-			</a>
+            <a href="{% url 'login' %}">
+              <button type="button" class="btn btn-outline-light me-2 ">Iniciar Sesion</button>
+            </a>
 
-			<a href="{% url 'usuarios:registro' %}">
-				<button type="button" class="btn btn-warning">Registrarse</button>
-			</a>
+            <a href="{% url 'usuarios:registro' %}">
+              <button type="button" class="btn btn-warning">Registrarse</button>
+            </a>
 
           
         {% else %}
 
-          <a href="{% url 'usuarios:perfil' %}">
-            <button type="button" class="btn btn-outline-light me-2">{{user.username}}</button>
-          </a>
+			<a href="{% url 'usuarios:perfil' %}">
+				<button type="button" class="btn btn-outline-light me-2">
+          <img src="static/person-circle.svg"> {{user.username}}</button>
+			</a>
 
-          <a href="{% url 'logout' %}">
-            <button type="button" class="btn btn-warning">
-                Cerrar Sesion
-            </button>
-          </a>
+			<a href="{% url 'logout' %}">
+				<button type="button" class="btn btn-warning">
+					Cerrar Sesion
+				</button>
+			</a>
           <!--
           <button type="button" class="btn btn-warning">
             <a href="{% url 'logout' %}" style="text-decoration:none"> <font color="black">Cerrar Sesion</font>
