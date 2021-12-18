@@ -1,8 +1,10 @@
-from django.db import models
-from django.shortcuts import render
-from django.urls import reverse_lazy
-from django.views.generic import ListView, CreateView
-from django.views.generic.edit import DeleteView, UpdateView, DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db                  import models
+from django.shortcuts           import render
+from django.urls                import reverse_lazy
+from django.views.generic       import ListView, CreateView
+from django.views.generic.edit  import DeleteView, UpdateView, DeleteView
+from  apps.core.mixins import AdminRequiredMixins
 
 # Create your views here.
 from .forms import UsuarioForm, RegistroForm
@@ -11,7 +13,7 @@ from .models import Usuario
 def usuarios(request):
     return render(request, 'usuarios/usuarios.html')
 
-class ListarAdmin(ListView):
+class ListarAdmin(LoginRequiredMixin, AdminRequiredMixins, ListView):
     template_name = "usuarios/admin/listar.html"
     model = Usuario
     context_object_name = "usuarios"

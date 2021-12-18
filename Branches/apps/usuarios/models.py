@@ -10,7 +10,7 @@ from django.contrib.auth.models import AbstractUser
 class Usuario(AbstractUser):
     writer = models.BooleanField(default=False)
     comment = models.BooleanField(default=True)
-
+    es_administrador = models.BooleanField(default=False)
     # foto = models.ImageField()
 
     class Meta:
