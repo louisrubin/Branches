@@ -15,6 +15,54 @@
         <body>
     {% include 'base/header.html' %}
 
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">Navbar</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Información</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Features</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Comentarios
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Objetivos
+                                </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="#">Fin de la pobreza</a></li>
+                            <li><a class="dropdown-item" href="#">Hambre cero</a></li>
+                            <li><a class="dropdown-item" href="#">Salud y bienestar</a></li>
+                            <li><a class="dropdown-item" href="#">Educación de calidad</a></li>
+                            <li><a class="dropdown-item" href="#">Igualdad de género</a></li>
+                            <li><a class="dropdown-item" href="#">Agua limpia y saneamiento</a></li>
+                            <li><a class="dropdown-item" href="#">Energía asequible y no contaminante</a></li>
+                            <li><a class="dropdown-item" href="#">Trabajo decente y crecimiento económico</a></li>
+                            <li><a class="dropdown-item" href="#">Agua, industria, innovación e insfraestructura</a></li>
+                            <li><a class="dropdown-item" href="#">Reducción de las desigualdades</a></li>
+                            <li><a class="dropdown-item" href="#">Ciudades y comunidades sostenibles</a></li>
+                            <li><a class="dropdown-item" href="#">Producción y consumos responsables</a></li>
+                            <li><a class="dropdown-item" href="#">Acción por el clima</a></li>
+                            <li><a class="dropdown-item" href="#">Vida submarina</a></li>
+                            <li><a class="dropdown-item" href="#">Vida de ecocistemas terrestres</a></li>
+                            <li><a class="dropdown-item" href="#">Paz, justicia e instituciones sólidas</a></li>
+                            <li><a class="dropdown-item" href="#">Alianzas para lograr los objetivos</a></li>
+                        </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
     {% block contenido %}
 
     
