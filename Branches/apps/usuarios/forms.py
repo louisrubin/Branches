@@ -12,19 +12,21 @@ class UsuarioForm(forms.ModelForm):
                 "first_name",
                 'last_name',
                 'email',
-                'is_superuser',
-                'writer',
                 'comment',
+                'writer',
+                'es_administrador',
+                'is_superuser',
                 ]
         labels = {"username": "Nombre de Usuario", 
                 "first_name": "Nombre", 
                 'last_name': 'Apellido',
                 'email': 'Correo',
-                'is_superuser': 'Admin',
-                'comment': 'Puede Comentar',
+                'comment': 'Comentar',
                 'writer': 'Escritor',
+                'es_administrador': 'Administrador',
+                'is_superuser': 'Super User',
                 }
-
+        
 
 class RegistroForm(UserCreationForm):
     class Meta:

@@ -1,52 +1,46 @@
-<h1>  posts.html  </h1>
+{% extends 'base/base.html' %}
+
+{% block titulo %}<title>Mis Posts</title>{% endblock titulo %}
 
 
+{% load static %}
 
-<div class="row" style="padding: 10px;">
-    <div class="col">
-        
-        <button type="button"> <a href="{% url 'posts:agregar_posts' %}">Agregar</a> </button>
-        <button type="button"> <a href="{% url 'inicio' %}">Ir al inicio</a> </button>
+
+{% block contenido %}
+
+    <div class="row" style="padding: 10px;">
+        <div class="col-md-1 p-lg-2 mx-auto my-2">
+            
+            <!-- <button type="button"> <a href="{% url 'posts:agregar_posts' %}">Agregar</a> </button> -->
+            <a class="btn btn-primary btn-lg" href="{% url 'usuarios:perfil' %}" >Volver Atrás</a>
+            <!-- <button type="button"> <a href="{% url 'inicio' %}">Ir al inicio</a> </button> -->
+        </div>
     </div>
-</div>
 
-<table>
-    <thead>
-            <th scope="col">Id</th>
-            <th scope="col">Cuerpo</th>
-            <!-- <th scope="col">Descripción</th> -->
-            <th scope="col">Fecha</th>
-            <th scope="col">Usuario</th>
-            <th scope="col">Acción</th>
-    </thead>
+<main >
+    <div class="row" data-masonry="{&quot;percentPosition&quot;: true }" style="position: relative; height: 690px;">
 
         {% for x in posts %}
-            <tr>
-                <th scope="row">{{x.id}}</th>
-                <td>{{x.cuerpo}}</th>
-                <!-- <td>{{x.descripcion}}</th> -->
-                <td>{{x.fecha_creacion}}</th>
-                <td>{{x.autor}}</th>
-                <td>
-                    <a href="">Ver</a>
-                    <a href="">Editar</a>
-                    <a href="">Eliminar</a>
-                </td>
-            </tr>
+
+            <div class="card" style="width: 20rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{x.autor}}
+                        {% if x.es_borrador %}
+                            <button type="button" class="btn btn-warning btn-sm">Borrador</button>
+                        {% endif %}
+                    </h5>
+                    <h6 class="card-subtitle mb-2 text-muted">tema</h6>
+                    <p class="card-text">{{x.cuerpo}}</p>
+                    <button type="button" class="btn btn-outline-dark">Ver</button>
+                    <button type="button" class="btn btn-outline-dark">Editar</button>
+                    <button type="button" class="btn btn-outline-dark">Borrar</button>
+                </div>
+            </div>
+
         {% endfor %}
+        
+    </div>
 
-    <tbody>
+</main>
 
-    </tbody>
-
-<!--     
-<form method="POST">
-	{% csrf_token %}
-
-	{{form.cuerpo}}
-
-	<button type="submit"> Publicar </button>
-
-</form> -->
-
-</table>
+{% endblock contenido %}

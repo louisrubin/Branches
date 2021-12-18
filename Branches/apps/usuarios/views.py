@@ -34,7 +34,7 @@ class Nuevo_only_Admin(CreateView):
 """
 
 
-class Editar_only_Admin(UpdateView):
+class Editar_only_Admin(AdminRequiredMixins, UpdateView):
     template_name= "usuarios/admin/editar.html"
     model = Usuario
     form_class = UsuarioForm
@@ -51,7 +51,7 @@ class RegistroUsuario(CreateView):
     success_url = reverse_lazy("login")
 
 
-class PerfilUsuario(ListView):
+class PerfilUsuario(LoginRequiredMixin, ListView):
     template_name = "usuarios/perfil.html"
     model = Usuario
     form_class = UsuarioForm
@@ -59,7 +59,7 @@ class PerfilUsuario(ListView):
     context_object_name = "usuario_data"
 
 
-class Delete_User(DeleteView):
+class Delete_User(AdminRequiredMixins, DeleteView):
     template_name = "usuarios/admin/delete_user.html"
     model = Usuario
 

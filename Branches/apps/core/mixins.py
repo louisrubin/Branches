@@ -4,6 +4,13 @@ class AdminRequiredMixins():
 	"""docstring for AdminRequiredMixins"""
 	def dispatch (self, request, *args, **kwars):
 		if not request.user.es_administrador:
-			raise PermissionDenied
+			if not request.user.is_superuser:
+				raise PermissionDenied
 		return super(AdminRequiredMixins, self).dispatch(request, *args, **kwars)
 		
+class WriterRequiredMixins():
+	def dispatch (self, request, *args, **kwars):
+		if not request.user.writer:
+			if not request.user.is_superuser or request.user.es_administrador:
+				raise PermissionDenied
+		return super(WriterRequiredMixins, self).dispatch(request, *args, **kwars)

@@ -48,40 +48,33 @@
     <div class="py-5 text-center">
 
       <img class="d-block mx-auto mb-4" src="/static/gatito.svg" alt="" width="72" height="57">
-      <h2>Registrar Nuevo Usuario</h2>
+      <h2>Registrarse</h2>
 
-    </div>
-			
+    </div >
+
+		<div class="col-md-4 p-lg-3 mx-auto my-4"> <!--  class="py-5 text-center" -->
 			{% include 'includes/form_errors.html' %}
 
-		
-
-			<form method="POST">{% csrf_token %}
-
-				
+			<form method="POST">
+				{% csrf_token %}
 				{% for f in form %}
-
-				<div class="col-12" style="padding-bottom: 15px;">
-					{{f.label}}
-					{{f}}
-				</div>
-
+					<div class="col-12" style="padding-bottom: 15px;">
+						{{f.label}}
+						{{f}}
+					</div>
 				{% endfor %}
 					
 				<button class="w-60 btn btn-primary btn-lg" type="submit">Registrarse</button>
 			</form>
 
-			<button type="button" class="w-60 btn btn-secondary btn-sm">
-				<a class="primary"" href="{% url 'inicio' %}" style="text-decoration:none"> <font color="white">Ir al inicio </font> </a>
-			</button>
-			
-			<button type="button" class="w-60 btn btn-secondary btn-sm"> 
-				<a class="primary"" href="{% url 'login' %}" style="text-decoration:none"> <font color="white">Iniciar Sesion </font> </a>
-			</button>
+				<a href="{% url 'inicio' %}">
+					<button type="button" class="w-60 btn btn-secondary btn-sm">Ir al inicio</button>
+				</a>
 
-
-        </form>
-      </div>
+				<a href="{% url 'login' %}">
+					<button type="button" class="w-60 btn btn-secondary btn-sm">Iniciar Sesion</button>
+				</a>
+      	</div>
     </div>
 	
   </main>
