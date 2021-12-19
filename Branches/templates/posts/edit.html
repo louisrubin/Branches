@@ -1,0 +1,46 @@
+{% extends 'base/base.html' %}
+
+{% block titulo %} <title>Editar Post</title> {% endblock titulo %}
+
+
+
+{% block contenido %}
+
+<div class="container-xxl my-md-4 bd-layout">
+
+    <div class="bd-example">
+            <form method="POST"> {% csrf_token %}
+
+                {{form.as_p}}
+                
+                <div class="mb-3">
+                    <button class="btn btn-primary" type="submit" >Guardar</button>
+                    <a href="{% url 'posts:mis_posts' %}">
+                        <button class="btn btn-secondary" type="" >Volver</button>
+                    </a>
+                </div>
+                
+<!-- 
+
+                    <div class="mb-3">
+                        <label for="validationTextarea" class="form-label">Titulo</label>
+                        <textarea class="form-control" id="validationTextarea" placeholder="Titulo" required="" style="margin-top: 0px; margin-bottom: 0px; height: 45px;"></textarea>
+                        
+                    </div>
+                    <div class="mb-3">
+                        <label for="validationTextarea" class="form-label">Cuerpo</label>
+                        <textarea class="form-control" id="validationTextarea" placeholder="Cuerpo del Post" required="" style="margin-top: 0px; margin-bottom: 0px; height: 45px;"></textarea>
+                        
+                    </div>
+                    
+                    <div class="form-check mb-3">
+                        <input type="checkbox" class="form-check-input" id="validationFormCheck1" required="">
+                        <label class="form-check-label" for="validationFormCheck1">Borrador</label>
+                        <div class="invalid-feedback">Example invalid feedback text</div>
+                    </div>
+                     -->
+            </form>
+    </div>
+</div>
+
+{% endblock contenido %}

@@ -6,6 +6,8 @@
    
     {% include "includes/form_errors.html" %}
 
+<div class="container-xxl my-md-4 bd-layout">
+
     <form method="post">{% csrf_token %}
 
         {{form.as_p}}
@@ -19,6 +21,7 @@
 
     </form>
 
+</div>
 {% endblock contenido %}
     
 

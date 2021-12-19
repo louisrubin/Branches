@@ -1,0 +1,47 @@
+{% extends 'base/base.html' %}
+{% block titulo %} <title> Ver Post </title>{% endblock titulo %}
+
+{% block contenido %}
+
+
+<main class="container py-6">
+    
+
+    <div class="col-12" data-masonry="{&quot;percentPosition&quot;: true }" style="position: relative; height: 690px; ">
+
+
+            <div class="card text-center display-7 fw-normal" style="width: 25rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{post.titulo}}
+                        {% if post.es_borrador %}
+                            <button type="button" class="btn btn-warning btn-sm">Borrador</button>
+                        {% endif %}
+                    </h5>
+                    <h6 class="card-subtitle mb-2 text-muted">tema</h6>
+                    <p class="card-text">{{post}}</p>
+
+                    <a href="{% url 'posts:editar_post' post.id %}">
+                        <button type="button" class="btn btn-outline-dark">Editar</button>
+                    </a>
+
+                    <a href="{% url 'posts:delete_post' post.id %}">
+                        <button type="button" class="btn btn-outline-danger">Borrar</button>
+                    </a>
+                    
+                    
+                </div>
+            </div>
+
+    </div>
+    
+    <div class="row" style="padding: 10px;">
+        <div class="col-md-2 p-lg-4 mx-auto my-2">
+
+            <a class="btn btn-primary btn-lg" href="{% url 'posts:mis_posts' %}" >Volver Atrás</a>
+
+        </div>
+    </div>
+
+</main>
+
+{% endblock contenido %}

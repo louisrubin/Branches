@@ -7,6 +7,8 @@
     
     {% include "includes/form_errors.html" %}
 
+<div class="container-xxl my-md-4 bd-layout">
+
     <form method="post">{% csrf_token %}
         {{form.as_p}}
         
@@ -15,8 +17,8 @@
                 <button type="submit">Guardar</button>
             </div>
         </div>
-
     </form>
+</div>
 
     <!-- <a href="{ url 'posts:inicio_post' }">
         <button type="button"> Cancelar </button>
