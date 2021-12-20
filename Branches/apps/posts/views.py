@@ -33,7 +33,7 @@ class Mis_Posts(LoginRequiredMixin, ListView):
     template_name = "posts/my_posts.html"
     model = Post
     context_object_name = "posts"   
-
+    paginate_by = 10
     
     def get_queryset(self):
         return Post.objects.filter(autor = self.request.user.id).order_by("id")
