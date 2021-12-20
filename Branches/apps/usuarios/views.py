@@ -33,7 +33,7 @@ class ListarAdmin(LoginRequiredMixin, AdminRequiredMixins, ListView):
         return Usuario.objects.all().order_by("id")
 
 
-class Ver_Perfil_Admin(AdminRequiredMixins, View):
+class Ver_Perfil_Admin(LoginRequiredMixin, AdminRequiredMixins, View):
     # template_name = "usuarios/admin/admin-ver-perfil.html"    # url: admin_ver_perfil
     # model = Usuario
     # form_class = UsuarioForm
@@ -60,7 +60,7 @@ class Ver_Perfil_Admin(AdminRequiredMixins, View):
 
 
 
-class Editar_only_Admin(AdminRequiredMixins, UpdateView):
+class Editar_only_Admin(LoginRequiredMixin, AdminRequiredMixins, UpdateView):
     template_name= "usuarios/admin/editar.html"
     model = Usuario
     form_class = UsuarioForm
@@ -78,7 +78,7 @@ class RegistroUsuario(CreateView):
 
 
 
-class Delete_User(AdminRequiredMixins, DeleteView):
+class Delete_User(LoginRequiredMixin, AdminRequiredMixins, DeleteView):
     template_name = "usuarios/admin/delete_user.html"
     model = Usuario
 

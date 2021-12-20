@@ -7,7 +7,7 @@ from . import views
 app_name = 'posts'
 
 urlpatterns = [
-    path('', views.Inicio_Posts.as_view(), name='inicio_posts'),
+    #path('', views.Index_Posts.as_view(), name='index_posts'),
     path('agregar/', views.Agregar_Post.as_view(), name='agregar_posts'),
     path('mis-posts/', views.Mis_Posts.as_view(), name='mis_posts'),
 

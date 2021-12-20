@@ -11,18 +11,17 @@ class Post(models.Model):
     cuerpo = models.TextField()
     fecha_creacion = models.DateTimeField(default= timezone.now)
     autor = models.ForeignKey(Usuario, on_delete=models.CASCADE, related_name= 'autor_post', null=True)
-    likes = models.ManyToManyField(Usuario, blank= True, related_name= 'likes')
     es_borrador = models.BooleanField(default=False)
 
     
     def __str__(self) -> str:
         return self.cuerpo
 
+
 class Comentario(models.Model):
     comentario = TextField(max_length=255)
     fecha_creacion = models.DateTimeField(default= timezone.now)
     autor = models.ForeignKey(Usuario, on_delete=models.CASCADE, related_name= 'comment_post')
-    likes = models.ManyToManyField(Usuario, blank= True, related_name= 'comment_likes')
 
 
     def __str__(self) -> str:

@@ -22,12 +22,69 @@
   
 	<p>By adding <code>data-masonry='{"percentPosition": true }'</code> to the <code>.row</code> wrapper, we can combine the powers of Bootstrap's responsive grid and Masonry's positioning.</p>
    -->
-	<main class="container">
+
+	<main class="container py-6">
+	</main>
+	
+	
+<main class="container">
+
+		<div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+			{% for post in posts %}
+				{% if not post.es_borrador %}
+
+					<div class="card">
+						<div class="card-body">
+							<h5 class="card-title">{{post.titulo}}</h5>
+							<div class="card">
+								
+								<div class="card-body">	
+									<p class="card-text">{{post.cuerpo}}</p>
+									<p class="card-text"><small class="text-muted">{{post.autor}} - {{post.fecha_creacion}}</small></p>
+								</div>
+							</div>
+							<div style="padding-top: 10px;">
+								<a class="btn btn-outline-secondary btn-sm" href="#" >Comentar Este Post</a>
+							</div>
+
+						</div>
+					</div>
+				{% endif %}
+				
+				{% for coment in comments %}
+					<div class="card">
+									
+						<div class="card-body">	
+							<p class="card-text">{{comment.comentario}}</p>
+							<p class="card-text"><small class="text-muted">{{comment.autor}} - {{comment.fecha_creacion}}</small></p>
+						</div>
+					</div>
+				
+				{% endfor %}
+				
+
+
+				<!-- <div class="col">
+					<div class="card mb-4 rounded-3 shadow-sm">
+						<div class="card-header py-3">
+							<h4 class="my-0 fw-normal">{{post.autor}} <small>posteó:</small></h4>
+						</div>
+						<div class="card-body">
+							<h1 class="card-title">{{post.titulo}}</h1>
+							<h5> {{post.cuerpo}} </h5>
+							<a href="">
+								<button type="button" class="w-100 btn btn-lg btn-outline-primary">Comentar</button>
+							</a>
+						</div>
+					</div>
+				</div> -->
+			{% endfor %}
+		</div>
     
       <div class="col-md-6 px-0">
-      <img src="static/objetivos/img_obj_comp.jpg" width="1290" height="250" preserveAspectRatio="xMidYMid slice" focusable="false"> 
-    </div>
-  </div>
+			<img src="static/objetivos/img_obj_comp.jpg" width="1290" height="250" preserveAspectRatio="xMidYMid slice" focusable="false"> 
+			</div>
+  		</div>
 
   <div class="row mb-2">
     <div class="col-md-6">
@@ -263,48 +320,8 @@
         </div>
         <div class="col-auto d-none d-lg-block">
           <img src="static/objetivos/objetivo17.jpg" width="200" height="250" preserveAspectRatio="xMidYMid slice" focusable="false"> 
-</main>    
-<!--
-	{% if user.is_authenticated%}
-		<button type="button"> <a href="{% url 'logout' %}">Cerrar sesion</a> </button>
-			
+</main>  
 
-	{%else%}
-		<button type="button"> <a href="{% url 'login' %}">Iniciar sesion</a> </button>
-	{%endif%}
-
-
-	<button type="submit">  <a href="{% url 'usuarios:registro' %}">Registrarse</a>  </button>
-
-
-	{% if user.is_authenticated%}
-			<h5>Inicio: {{informacion}}</h1>
-			<h1>hola {{ user.get_full_name }}</h2>
-
-	{%else%}
-			<h1>bienvenido a mi sitio</h1>
-	{%endif%}
-
-	
-    <div class="container">
-		<header class="d-flex justify-content-center py-3">
-		  <ul class="nav nav-pills">
-			<li class="nav-item"><a href="{% url 'inicio' %}" class="nav-link active" aria-current="page">Home</a></li>
-			{% if user.is_superuser %}
-			<li class="nav-item"><a href="{% url 'usuarios:admin_listar' %}" class="nav-link">Usuarios</a></li>
-			{% endif %}
-		  </ul>
-		</header>
-	  </div>
--->
-<!-- 
-	<div class="conteiner">
-		<div>
-			<div>
-				<img src="static/programacion.jpg" alt="" width="100%">
-			</div>
-		</div>
-	</div> -->
 
 
 {% endblock contenido %}
