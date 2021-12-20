@@ -5,7 +5,7 @@ from django.http import request
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
 
-from .models import Post
+from .models import Comentario, Post
 
 
 class Post_Form(forms.ModelForm):
@@ -20,7 +20,7 @@ class Post_Form(forms.ModelForm):
 		})
     )
 
-	es_borrador = forms.BooleanField(label='Borrador', required=False)
+	es_borrador = forms.BooleanField(required=False)
 
 
 	class Meta:
@@ -55,21 +55,29 @@ def Editar_Post(request):
 
 
 
-class Post_Form(forms.ModelForm):
-    """Form definition for MODELNAME."""
+# class Post_Form(forms.ModelForm):
+#     """Form definition for MODELNAME."""
 
-    class Meta:
-        """Meta definition for MODELNAMEform."""
-        model = Post
-        fields = ('titulo',
-                'cuerpo',
-                'es_borrador',
-                )
-        labels = {
-                'titulo': 'Título',
-                'cuerpo':'Escribe aquí',
-                'es_borrador':'Borrador',
-        }
+#     class Meta:
+#         """Meta definition for MODELNAMEform."""
+#         model = Post
+#         fields = ('titulo',
+#                 'cuerpo',
+#                 'es_borrador',
+#                 )
+#         labels = {
+#                 'titulo': 'Título',
+#                 'cuerpo':'Escribe aquí',
+#                 'es_borrador':'Borrador',
+#         }
 
-class Comment_Post():
-        pass
+class Comment_Post(forms.ModelForm):
+	cuerpo = forms.CharField(
+		widget=forms.TextInput(attrs={
+			'class': 'col-sm-6'
+		})
+    )
+
+	class Meta:
+		model = Comentario
+		fields = {'cuerpo'}

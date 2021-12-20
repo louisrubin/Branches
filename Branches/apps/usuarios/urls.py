@@ -11,7 +11,7 @@ urlpatterns = [
 
     # ADMIN
     path("admin/listar/", views.ListarAdmin.as_view(), name="admin_listar"),
-    #path("admin/nuevo/", views.Nuevo_only_Admin.as_view(), name="admin_nuevo"),
-    path("admin/editar/<int:pk>", views.Editar_only_Admin.as_view(), name= "admin_editar"),
-    path("admin/delete/<int:pk>", views.Delete_User.as_view(), name="delete_user"),
+    path("admin/ver-perfil/<int:pk>/", views.Ver_Perfil_Admin.as_view(), name="admin_ver_perfil"),
+    path("admin/editar/<int:pk>/", views.Editar_only_Admin.as_view(), name= "admin_editar"),
+    path("admin/delete/<int:pk>/", views.Delete_User.as_view(), name="delete_user"),
 ]

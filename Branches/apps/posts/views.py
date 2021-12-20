@@ -5,27 +5,26 @@ from django.views.generic import ListView, CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic.base import View
 from django.views.generic.edit import DeleteView, UpdateView
-from apps.core.mixins import WriterRequiredMixins
+from apps.core.mixins import WriterRequiredMixins, CommentRequiredMixins
 
-from apps.usuarios.models import Usuario
 
 # Create your views here.
 
-from .models import Post
+from .models import Post, Comentario
 from .forms import *
 
-class Inicio_Posts(LoginRequiredMixin, ListView):
+# class Index_Posts(ListView):
 
-    template_name = "posts/posts.html"
-    model = Post
-    context_object_name = "posts"   
+#     template_name = "index.html"
+#     model = Post
+#     context_object_name = "posts"   
 
   
-    def get_queryset(self):
-        if self.request.user.is_superuser or self.request.user.es_administrador:
-            return Post.objects.all().order_by("id")
-        else:
-            return Post.objects.filter(autor = self.request.user.id).order_by("id")
+#     def get_queryset(self):
+#         if self.request.user.is_superuser or self.request.user.es_administrador:
+#             return Post.objects.all()
+#         # else:
+#         #     return Post.objects.filter(autor = self.request.user.id).order_by("id")
 
 
 class Mis_Posts(LoginRequiredMixin, ListView):
@@ -39,7 +38,7 @@ class Mis_Posts(LoginRequiredMixin, ListView):
         return Post.objects.filter(autor = self.request.user.id).order_by("id")
 
 
-class Agregar_Post(WriterRequiredMixins, CreateView):
+class Agregar_Post(LoginRequiredMixin, WriterRequiredMixins, CreateView):
     template_name= "posts/new_post.html"
     model = Post
 
@@ -52,6 +51,22 @@ class Agregar_Post(WriterRequiredMixins, CreateView):
         return super(Agregar_Post, self).form_valid(form)
 
     success_url = reverse_lazy("posts:mis_posts")
+
+
+class Agregar_Comentario(LoginRequiredMixin, CommentRequiredMixins, CreateView):
+    template_name= "index.html"
+    model = Comentario
+
+    form_class = Comment_Post
+
+    # agrega el id del user al campo foreingkey automaticamente
+    def form_valid(self, form):
+        f = form.save(commit= False)
+        f.autor_id = self.request.user.id
+        return super(Agregar_Post, self).form_valid(form)
+
+    success_url = reverse_lazy("posts:mis_posts")
+
 
 class Ver_Post(LoginRequiredMixin, View):
       
@@ -73,8 +88,6 @@ class Ver_Post(LoginRequiredMixin, View):
         }
         return render(request, 'posts/ver_post.html', context)
 
-
-
 class Editar_Post(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
     fields = ['titulo','cuerpo', 'es_borrador']
@@ -94,6 +107,7 @@ class Delete_Post(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     success_url = reverse_lazy('posts:mis_posts')
 
     def test_func(self):
+        # 
         post = self.get_object()
         return self.request.user == post.autor
 

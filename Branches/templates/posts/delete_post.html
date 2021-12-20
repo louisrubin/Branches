@@ -1,0 +1,21 @@
+{% extends 'base/base.html' %}
+
+{% block titulo %}<title>Eliminar Posteo</title>{% endblock titulo %}
+
+{% block contenido %}
+    
+    <main class="container py-6">
+        <h1>DELETE POST</h1>
+
+        <div class="col-3 col-md">
+            <form method="post" >{% csrf_token %}
+
+                <p>¿Eliminar el Posteo {{object.titulo}}?</p>
+        
+                <button type="submit">Aceptar</button>
+            </form>
+            <a href="{% url 'posts:mis_posts' %}"> <button> Cancelar </button> </a>
+        </div>
+        
+    </main>
+{% endblock contenido %}
