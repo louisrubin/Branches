@@ -24,7 +24,7 @@ class UsuarioForm(forms.ModelForm):
                 'comment': 'Comentar',
                 'writer': 'Escritor',
                 'es_administrador': 'Administrador',
-                'is_superuser': 'Super User',
+                'is_superuser': 'Super-User',
                 }
         
 

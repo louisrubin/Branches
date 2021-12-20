@@ -17,7 +17,7 @@ class ListarAdmin(LoginRequiredMixin, AdminRequiredMixins, ListView):
     template_name = "usuarios/admin/listar.html"
     model = Usuario
     context_object_name = "usuarios"
-    paginate_by = 1
+    paginate_by = 10
 
     # return de query + filter
     def get_queryset(self):

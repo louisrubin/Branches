@@ -12,7 +12,7 @@
         <li><a href="{% url 'inicio' %}" class="nav-link px-2 text-white" >Inicio</a></li>
         
         {% if user.is_superuser or user.es_administrador %}
-        <li><a href="{% url 'usuarios:admin_listar' %}" class="nav-link px-2 text-white">Usuarios</a></li>
+          <li><a href="{% url 'usuarios:admin_listar' %}" class="nav-link px-2 text-white">Usuarios</a></li>
         {% endif %}
 <!--           
         <li><a href="#" class="nav-link px-2 text-white">Pricing</a></li>
@@ -23,10 +23,10 @@
       
       {% if user.is_authenticated and user.is_superuser or user.es_administrador or user.writer %}
         <div style="width: 18rem; padding-bottom: 5px;">
-			<a href="{% url 'posts:agregar_posts' %}" >
-				<button type="button"  class="btn btn-outline-light me-5"> 
-				  <img src="{% static '/plus-lg.svg' %}"> Nuevo Post
-				</button>
+          <a href="{% url 'posts:agregar_posts' %}" >
+            <button type="button"  class="btn btn-outline-light me-5"> 
+              <img src="{% static '/plus-lg.svg' %}"> Nuevo Post
+            </button>
 			  </a>
 
         </div>

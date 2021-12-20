@@ -1,54 +1,56 @@
+{% extends 'base/base.html' %}
+
 {% block titulo %}<title>Listar Usuarios</title>{% endblock titulo %}
 
-<h1>LISTA DE USUARIOS (admin)</h1>
 
+{% block contenido %}
+  
 
-<div class="row" style="padding: 10px;">
-    <div class="col">
-        
-        <!-- <button type="button"> <a href="{ url 'usuarios:admin_nuevo' }">Agregar</a> </button> -->
-        <button type="button"> <a href="{% url 'inicio' %}">ir al inicio</a> </button>
-    </div>
-</div>
+  <div class="row" style="padding: 10px;">
+      <div class="col">
+          
+          <!-- <button type="button"> <a href="{ url 'usuarios:admin_nuevo' }">Agregar</a> </button> -->
+          <button type="button"> <a href="{% url 'inicio' %}">ir al inicio</a> </button>
+      </div>
+  </div>
 
-<table>
-    <thead>
-            <th scope="col">Id</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Usuario</th>
-            <th scope="col">Dni</th>
-            <th scope="col">Acción</th>
-    </thead>
+  <table>
+      <thead>
+              <th scope="col">Id</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Usuario</th>
+              <th scope="col">Usuario</th>
+              <th scope="col">Acción</th>
+      </thead>
 
-        {% for x in usuarios %}
-            <tr>
-                <th scope="row">{{x.id}}</th>
-                <td>{{x.first_name}}</th>
-                <td>{{x.username}}</th>
-                <td>{{x.dni}}</th>
-                <td>
-                    <a href="">Ver</a>
-                    <a href="{% url 'usuarios:admin_editar' x.id %}">Editar</a>
-                    <a href="{% url 'usuarios:delete_user' x.id %}">Eliminar</a>
-                </td>
-            </tr>
-        {% endfor %}
+          {% for x in usuarios %}
+              <tr>
+                  <th scope="row">{{x.id}}</th>
+                  <td>{{x.first_name}}</th>
+                  <td>{{x.username}}</th>
+                  <td>{{x.dni}}</th>
+                  <td>
+                      <a href="">Ver</a>
+                      <a href="{% url 'usuarios:admin_editar' x.id %}">Editar</a>
+                      <a href="{% url 'usuarios:delete_user' x.id %}">Eliminar</a>
+                  </td>
+              </tr>
+          {% endfor %}
 
-    <tbody>
+  </table>
+<!-- 
+	<nav aria-label="Page navigation example">
+    	<ul class="pagination justify-content-center">
+			<li class="page-item disabled">
+				<a class="page-link">Previous</a>
+			</li>
+			<li class="page-item"><a class="page-link" href="#">1</a></li>
+			<li class="page-item"><a class="page-link" href="#">2</a></li>
+			<li class="page-item"><a class="page-link" href="#">3</a></li>
+			<li class="page-item">
+				<a class="page-link" href="#">Next</a>
+			</li>
+    	</ul>
+  	</nav> -->
 
-    </tbody>
-</table>
-
-    <nav aria-label="Page navigation example">
-  <ul class="pagination justify-content-center">
-    <li class="page-item disabled">
-      <a class="page-link">Previous</a>
-    </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item">
-      <a class="page-link" href="#">Next</a>
-    </li>
-  </ul>
-</nav>
+{% endblock contenido %}
