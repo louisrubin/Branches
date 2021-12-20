@@ -5,7 +5,7 @@
 
 {% block contenido %}
   
-
+<main class="container py-6">
   <div class="row" style="padding: 10px;">
       <div class="col">
           
@@ -14,12 +14,12 @@
       </div>
   </div>
 
-  <table>
+  <table class="text-center">
       <thead>
               <th scope="col">Id</th>
               <th scope="col">Nombre</th>
               <th scope="col">Usuario</th>
-              <th scope="col">Usuario</th>
+              <th scope="col">Super/Admin</th>
               <th scope="col">Acción</th>
       </thead>
 
@@ -28,16 +28,24 @@
                   <th scope="row">{{x.id}}</th>
                   <td>{{x.first_name}}</th>
                   <td>{{x.username}}</th>
-                  <td>{{x.dni}}</th>
                   <td>
-                      <a href="">Ver</a>
-                      <a href="{% url 'usuarios:admin_editar' x.id %}">Editar</a>
+				  {% if x.es_administrador or x.is_superuser %}
+					  Si
+				   {% else %}
+					No
+				  {% endif %}
+					  </th>
+                  <td>
+                      <a href="{% url 'usuarios:admin_ver_perfil' x.id %}">Ver</a>
+                      <!-- <a href="{% url 'usuarios:admin_editar' x.id %}">Editar</a>
                       <a href="{% url 'usuarios:delete_user' x.id %}">Eliminar</a>
-                  </td>
+                  </td> -->
               </tr>
           {% endfor %}
 
   </table>
+
+</main>
 <!-- 
 	<nav aria-label="Page navigation example">
     	<ul class="pagination justify-content-center">

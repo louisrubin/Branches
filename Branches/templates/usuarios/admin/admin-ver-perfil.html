@@ -1,0 +1,152 @@
+{% extends 'base/base.html' %}
+
+{% block titulo %}
+    <title>Admin: Ver Perfil</title>
+{% endblock titulo %}
+    
+
+{% block contenido %}
+  
+
+<main class="container py-6">
+    
+    
+    <div class="row" style="padding: 10px;">
+        <div class="col-md-2 p-lg-2 mx-auto my-2">
+
+            <a class="btn btn-primary btn-lg" href="{% url 'usuarios:admin_listar' %}" >Volver Atrás</a>
+
+        </div>
+    </div>
+
+    <div class="col-12" data-masonry="{&quot;percentPosition&quot;: true }" style="position: relative; height: 690px; ">
+
+
+            <div class="card text-center display-7 fw-normal" style="width: 25rem;">
+                <div class="card-body">
+                    
+                            
+                        <h5 class="card-title">{{perfil.username}}
+                            {% if perfil.es_administrador %}
+                                <button type="button" class="btn btn-warning btn-sm">Admin</button>
+                            {% else %}
+                                
+                                {% if perfil.is_superuser %}
+                                    <button type="button" class="btn btn-warning btn-sm">Super</button>
+                                {% endif %}
+                            {% endif %}
+                        </h5>
+                        <!-- <h6 class="card-subtitle mb-2 text-muted">{{user.first_name}} {{user.last_name}}</h6> -->
+                        
+                        <p class="card-text">ID: {{perfil.id}}</p>
+                        <p class="card-text">Username: {{perfil.username}}</p>
+                        <p class="card-text">Nombre: {{perfil.first_name}}</p>
+                        <p class="card-text">Apellido: {{perfil.last_name}}</p>
+                        <p class="card-text">Correo: {{perfil.email}}</p>
+                        <p class="card-text">Puede Publicar: 
+                                                            {% if perfil.writer %}
+                                                                True
+                                                            {% else %}
+                                                                
+                                                                    {% if perfil.es_administrador %}
+                                                                        True
+                                                                    {% else %}
+                                                                            
+                                                                            {% if perfil.is_superuser %}
+                                                                                True
+                                                                            {% else %}
+                                                                                False
+                                                                            {% endif %}
+                                                                            
+                                                                {% endif %}
+                                                                    
+                                                            {% endif %}
+                                                    </p>
+                        <p class="card-text">Puede Comentar:  
+                                                            {% if perfil.writer %}
+                                                                True
+                                                            {% else %}
+                                                                
+                                                                    {% if perfil.es_administrador %}
+                                                                        True
+                                                                    {% else %}
+                                                                            
+                                                                            {% if perfil.is_superuser %}
+                                                                                True
+                                                                            {% else %}
+                                                                                False
+                                                                            {% endif %}
+                                                                            
+                                                                {% endif %}
+                                                                    
+                                                            {% endif %}
+                                                    </p>
+
+                        <a href="{% url 'usuarios:admin_editar' perfil.id %}">
+                            <button type="button" class="btn btn-outline-dark">Editar Usuario</button>
+                        </a>
+
+                        <a href="{% url 'usuarios:delete_user' perfil.id %}">
+                            <button type="button" class="btn btn-outline-danger">Borrar Usuario</button>
+                        </a>
+
+                    
+                </div>
+            </div>
+
+    </div>
+
+</main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<main class="container py-6">
+    <div class="row" style="padding: 10px;">
+      <div class="col">
+          
+          
+          <button type="button"> <a href="{ url 'inicio' }">ir al inicio</a> </button>
+      </div>
+  </div>
+  
+  <table class="text-center">
+      <thead>
+              <th scope="col">Id</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Usuario</th>
+              <th scope="col">Usuario</th>
+              <th scope="col">Acción</th>
+      </thead>
+  
+        { for x in usuario }
+              <tr>
+                  <th scope="row">{{x.id}}</th>
+                  <td>{{x.first_name}}</th>
+                  <td>{{x.username}}</th>
+                  <td>{{x.dni}}</th>
+                  <td>
+                      <a href="{ url 'usuarios:admin_editar' x.id }">Editar</a>
+                      <a href="{ url 'usuarios:delete_user' x.id }">Eliminar</a>
+                  </td>
+              </tr>
+        { endfor }
+  
+  </table> 
+
+</main> -->
+
+{% endblock contenido %}
+    
