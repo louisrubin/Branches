@@ -13,8 +13,8 @@
 	   </div>
    
 	   	<ul class="nav col-md-3 justify-content-end list-unstyled d-flex">
-			<a class="btn btn-outline-secondary" href="{% url 'posts:mis_posts' %}" >Mis Posts</a>
-			<a class="btn btn-outline-secondary" href="{% url 'usuarios:editar_perfil' user.id %}" >Editar Perfil</a>
+			<a class="btn btn-outline-secondary btn-sm" href="{% url 'posts:mis_posts' %}" >Mis Posts</a>
+			<a class="btn btn-outline-secondary btn-sm" href="{% url 'usuarios:editar_perfil' user.id %}" >Editar Perfil</a>
 	   	</ul>
    	</div>
     <!-- <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light"> -->
@@ -47,9 +47,6 @@
 								
 				  	{% endif %}
 				</p>
-				<div style="padding-bottom: 15px;">
-				   <a class="btn btn-outline-secondary" href="{% url 'posts:mis_posts' %}" >Mis Posts</a>
-				</div>
 			</div>
 			<div class="bg-dark shadow-sm mx-auto text-white" style="width: 30%; border-radius: 21px 21px 0 0;">
 				
