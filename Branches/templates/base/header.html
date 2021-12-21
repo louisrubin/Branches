@@ -1,6 +1,6 @@
 {% load static %}
 
- <!-- ------------  HEADER 2 ------------- -->
+ <!-- =========================  HEADER 2 ========================= -->
 <div class="d-flex h-100 text-center text-white bg-dark">
   
 	<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
@@ -9,10 +9,40 @@
 			<a href="{% url 'inicio' %}">
 				<h3 class="float-md-start mb-0 text-white" style="padding-right: 15px;">Branches</h3> </a>
 
-				{% if user.is_superuser or user.es_administrador %}
-					<a href="{% url 'usuarios:admin_listar' %}" class="float-md-start mb-0 nav-link px-2 text-white">Usuarios</a>
-			  	{% endif %}
+
 			
+			
+			<a class="nav-link dropdown-toggle float-md-start mb-0 nav-link px-2 text-white" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				Objetivos
+			</a>
+
+			<a href="" class="float-md-start mb-0 nav-link px-2 text-white">Posts</a>
+				
+				<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+					<li><a class="dropdown-item" href="{% url 'objetivos' %}">Fin de la pobreza</a></li>
+					<li><a class="dropdown-item" href="{% url 'objetivos' %}">Hambre cero</a></li>
+					<li><a class="dropdown-item" href="{% url 'objetivos' %}">Salud y bienestar</a></li>
+					<li><a class="dropdown-item" href="{% url 'objetivos' %}">Educación de calidad</a></li>
+					<li><a class="dropdown-item" href="{% url 'objetivos' %}">Igualdad de género</a></li>
+					<li><a class="dropdown-item" href="{% url 'objetivos' %}">Agua limpia y saneamiento</a></li>
+					<li><a class="dropdown-item" href="{% url 'objetivos' %}">Energía asequible y no contaminante</a></li>
+					<li><a class="dropdown-item" href="{% url 'objetivos' %}">Trabajo decente y crecimiento económico</a></li>
+					<li><a class="dropdown-item" href="{% url 'objetivos' %}">Agua, industria, innovación e insfraestructura</a></li>
+					<li><a class="dropdown-item" href="{% url 'objetivos' %}">Reducción de las desigualdades</a></li>
+					<li><a class="dropdown-item" href="{% url 'objetivos' %}">Ciudades y comunidades sostenibles</a></li>
+					<li><a class="dropdown-item" href="{% url 'objetivos' %}">Producción y consumos responsables</a></li>
+					<li><a class="dropdown-item" href="{% url 'objetivos' %}">Acción por el clima</a></li>
+					<li><a class="dropdown-item" href="{% url 'objetivos' %}">Vida submarina</a></li>
+					<li><a class="dropdown-item" href="{% url 'objetivos' %}">Vida de ecocistemas terrestres</a></li>
+					<li><a class="dropdown-item" href="{% url 'objetivos' %}">Paz, justicia e instituciones sólidas</a></li>
+					<li><a class="dropdown-item" href="{% url 'objetivos' %}">Alianzas para lograr los objetivos</a></li>
+				</ul>
+			
+			
+
+			{% if user.is_superuser or user.es_administrador %}
+				<a href="{% url 'usuarios:admin_listar' %}" class="float-md-start mb-0 nav-link px-2 text-white">Usuarios</a>
+			{% endif %}
 
 
 			<nav class="nav nav-masthead justify-content-center float-md-end">
@@ -53,7 +83,7 @@
 </div>
 
 
- <!-- ------------  HEADER 1 ------------- -->
+ <!-- =========================   HEADER 1  ========================= -->
 <!-- 
 <header class="p-3 bg-dark text-white">
   <div class="container">

@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 from apps.usuarios.models import Usuario
 from apps.posts.models import Post
-from django.views.generic.base import TemplateView
+#from django.views.generic.base import TemplateView
 from django.views.generic import  ListView
 
 # vista basada en funcion

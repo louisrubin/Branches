@@ -1,3 +1,5 @@
+{% extends 'base/base.html' %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,20 +14,18 @@
     -->
     </head>
 
-{% block titulo %}
-    <title>Los 17 ODS</title>
-{% endblock titulo %}
-    
+	{% block titulo %}
+		<title>Los 17 ODS</title>
+	{% endblock titulo %}
+		
 
-{% block contenido %}
+	{% block contenido %}
 
 
-	<main class="container py-6">
-        <h1>OBJETIVOS DE DESARROLLO SOSTENIBLE</h1>
-	</main>
-
-{% endblock contenido %}
-
+		<main class="container py-6">
+			<h1 class="text-center">OBJETIVOS DE DESARROLLO SOSTENIBLE</h1>
+			<h5 class="text-center">17 OBJETIVOS PARA TRANSFORMAR NUESTRO MUNDO</h5>
+			
 
 		<body>
 		
@@ -542,11 +542,17 @@
     				</tr>
   				</tbody>
 			</table>
-    <!-- JavaScript Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
+
+				<!-- JavaScript Bundle with Popper -->
+			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+			<script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
     
     	</body>
+
+	</main>
+
+	{% endblock contenido %}
+
 
     {% include 'base/footer.html' %}
 </html>
