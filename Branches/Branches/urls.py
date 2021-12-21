@@ -28,7 +28,8 @@ urlpatterns = [
     path("", views.Inicio.as_view(), name='inicio'),
     #OBJETIVOS
     path('objetivos/', views.objetivos, name='objetivos'),
-
+    path('informacion/', views.informacion, name='informacion'),
+    path('contexto/', views.contexto, name='contexto'),
 
     # Includes
 
