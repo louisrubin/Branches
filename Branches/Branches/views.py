@@ -6,14 +6,11 @@ from django.views.generic.base import TemplateView
 from django.views.generic import  ListView
 
 # vista basada en funcion
-"""
-def inicio(request):
 
-    context = {
-        "usuarios": Usuario.objects.all(),  # genera una query del tipo 'SELECT * ' con .all()   ||||   # usuario1 = Usuario.objects.get(id=1)
-    }
-    return render(request, 'index.html', context)
-"""
+def objetivos(request):
+    return render(request, 'objetivos.html')
+
+    
 def login(request):
     return render(request, 'login.html')
 

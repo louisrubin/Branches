@@ -14,7 +14,7 @@ class Post_Form(forms.ModelForm):
 			'class': 'col-sm-6'
 		})
     )
-	cuerpo = forms.CharField(
+	cuerpo = forms.CharField(label='Cuerpo',
 		widget=forms.TextInput(attrs={
 			'class': 'col-sm-6'
 		})

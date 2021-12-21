@@ -27,6 +27,7 @@ from .forms import *
 #         #     return Post.objects.filter(autor = self.request.user.id).order_by("id")
 
 
+
 class Mis_Posts(LoginRequiredMixin, ListView):
 
     template_name = "posts/my_posts.html"

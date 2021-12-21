@@ -26,6 +26,8 @@ urlpatterns = [
     path('logout/', auth.logout_then_login, name= 'logout'),
 
     path("", views.Inicio.as_view(), name='inicio'),
+    #OBJETIVOS
+    path('objetivos/', views.objetivos, name='objetivos'),
 
 
     # Includes

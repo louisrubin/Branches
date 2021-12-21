@@ -14,10 +14,7 @@
         {% if user.is_superuser or user.es_administrador %}
           <li><a href="{% url 'usuarios:admin_listar' %}" class="nav-link px-2 text-white">Usuarios</a></li>
         {% endif %}
-<!--           
-        <li><a href="#" class="nav-link px-2 text-white">Pricing</a></li>
-        <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
-        <li><a href="#" class="nav-link px-2 text-white">About</a></li> -->
+
       </ul>
 
       
@@ -35,7 +32,8 @@
 {% comment %} 
       <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
         <input type="search" class="form-control form-control-dark" placeholder="Buscar..." aria-label="Search">
-      </form> {% endcomment %}
+      </form> 
+      {% endcomment %}
 
       <div class="text-end">
         

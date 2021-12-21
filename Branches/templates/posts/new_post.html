@@ -6,20 +6,20 @@
 {% block contenido %}
     
     {% include "includes/form_errors.html" %}
+<main class="container py-6">
+    <div class="container-xxl my-md-4 bd-layout">
 
-<div class="container-xxl my-md-4 bd-layout">
-
-    <form method="post">{% csrf_token %}
-        {{form.as_p}}
-        
-        <div class="row">
-            <div class="col">
-                <button type="submit">Guardar</button>
+        <form method="post">{% csrf_token %}
+            {{form.as_p}}
+            
+            <div class="row">
+                <div class="col">
+                    <button type="submit">Guardar</button>
+                </div>
             </div>
-        </div>
-    </form>
-</div>
-
+        </form>
+    </div>
+</main>
     <!-- <a href="{ url 'posts:inicio_post' }">
         <button type="button"> Cancelar </button>
     </a> -->
