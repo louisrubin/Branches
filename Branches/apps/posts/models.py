@@ -19,28 +19,13 @@ class Post(models.Model):
 
 
 class Comentario(models.Model):
-    comentario = TextField(max_length=255)
+    comentario = models.TextField(max_length=255)
     fecha_creacion = models.DateTimeField(default= timezone.now)
     autor = models.ForeignKey(Usuario, on_delete=models.CASCADE, related_name= 'comment_post')
+    post = models.ForeignKey('Post', on_delete=models.CASCADE)
 
 
     def __str__(self) -> str:
         return self.comentario
-"""
-class Post(models.Model):
-    titulo = models.CharField(max_length=50)
-    descripcion = models.TextField()
-    fecha = models.DateTimeField(default= timezone.now, blank=True)
-    es_borrador = models.BooleanField(default=False)
 
-    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, null= True)
-
-    # foto = models.ImageField()
-
-    class Meta:
-        db_table = 'post'
-
-    def __str__(self) -> str:
-
-        return f"{self.id} {self.titulo}"
-        """
+        

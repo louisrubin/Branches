@@ -9,25 +9,104 @@
 
     <div class="col-12" data-masonry="{&quot;percentPosition&quot;: true }" style="position: relative; height: 690px; ">
 
-
+        
             <div class="card text-center display-7 fw-normal" style="width: 25rem;">
-                <div class="card-body">
-                    <h5 class="card-title">{{post.titulo}}
+                <div class="card">
+
+                    <div class="card-body">
+                        <h7 class="card-title" style="text-decoration: underline">{{post.autor}} publicó: </h7>
+                        <h5 class="card-title">{{post.titulo}}
                         {% if post.es_borrador %}
                             <button type="button" class="btn btn-warning btn-sm">Borrador</button>
                         {% endif %}
-                    </h5>
-                    <h6 class="card-subtitle mb-2 text-muted">tema</h6>
-                    <p class="card-text">{{post}}</p>
+                        </h5>
+                        <h6 class="card-subtitle mb-2 text-muted">tema</h6>
+                        <p class="card-text">{{post}}</p>
+    
+                        {% if user.id == post.autor.id %}
 
-                    <a href="{% url 'posts:editar_post' post.id %}">
-                        <button type="button" class="btn btn-outline-dark">Editar</button>
-                    </a>
+                            <a href="{% url 'posts:editar_post' post.id %}" class="btn btn-sm btn-outline-dark">Editar
+                            </a>
+        
+                            <a href="{% url 'posts:delete_post' post.id %}" class="btn btn-sm btn-outline-danger">Borrar
+                            </a>
+                        
+                        {% endif %}
 
-                    <a href="{% url 'posts:delete_post' post.id %}">
-                        <button type="button" class="btn btn-outline-danger">Borrar</button>
-                    </a>
+                    </div>
+                </div>
                     
+                    
+                <div class="card">
+                    <div class="card-body">
+                        
+							<div  style="padding-bottom: 20px;">
+                                {% if user.comment or user.is_superuser or user.es_administrador %}
+                    
+                                    <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+                                        Comentar Este Post
+                                    </button>
+                                    
+                                {% endif %}
+
+								<div class="modal" id="myModal">
+									<div class="modal-dialog">
+									  <div class="modal-content">
+								  
+										<!-- Modal Header -->
+										<div class="modal-header">
+										  <h4 class="modal-title">Comentar</h4>
+										  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+										</div>
+								  
+										<!-- Modal body -->
+											<div class="modal-body">
+
+                                                <form method="POST"> {% csrf_token %}
+
+                                                    <div class="card">
+                                                        <div class="card-body">
+                                                            <h7 class="card-title">{{post.autor}}</h7>
+                                                            <h5 class="card-title">{{post.titulo}}
+                                                            {% if post.es_borrador %}
+                                                                <button type="button" class="btn btn-warning btn-sm">Borrador</button>
+                                                            {% endif %}
+                                                            </h5>
+                                                            <h6 class="card-subtitle mb-2 text-muted">tema</h6>
+                                                            <p class="card-text">{{post}}</p>
+                                    
+                                                        </div>
+
+                                                    </div>
+
+                                                    {{form}}
+								  
+                                                    <!-- Modal footer -->
+                                                    <div class="modal-footer">
+                                                        <button type="submit" class="btn btn-success" data-bs-dismiss="modal">Comentar</button>
+                                                    </div>
+
+                                                </form>
+											</div>
+								  
+									  </div>
+									</div>
+								</div>
+
+							</div>
+
+                                {% for comment in comentarios %}
+                                    <div class="card">
+            
+                                        <h6 class="card-title" style="text-decoration: underline;">{{comment.autor}} <small> comentó:</small></h6>
+                                        <p class="card-text">{{comment.comentario}}</p>
+                                        <p class="card-text"> <small> <small>{{comment.fecha_creacion}}</small></small> </p>
+                                    </div>
+                                
+                                {% endfor %}
+
+
+                    </div>
                     
                 </div>
             </div>
