@@ -2,8 +2,9 @@ from django.shortcuts import render
 
 from apps.usuarios.models import Usuario
 from apps.posts.models import Post
-#from django.views.generic.base import TemplateView
 from django.views.generic import  ListView
+from apps.posts.models import Comentario
+from apps.posts.forms import Comment_Post
 
 # vista basada en funcion
 
@@ -34,12 +35,3 @@ class Inicio(ListView):
     def get_queryset(self):
         if self.request.user:
             return Post.objects.all()
-
-
-
-#     template_name= "index.html"
-
-#     def get_context_data(self, **kwargs):
-#         context = super(Inicio, self).get_context_data(**kwargs)
-#         context["informacion"] = "--> views.py (class 'Inicio')  --> get_context_data()"
-#         return context

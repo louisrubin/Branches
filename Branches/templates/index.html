@@ -33,7 +33,15 @@
 								</div>
 							</div>
 							<div style="padding-top: 10px;">
-								<a class="btn btn-outline-secondary btn-sm" href="#" >Comentar Este Post</a>
+
+								<a href="{% url 'posts:ver_post' post.id %}">
+									<button type="button" class="btn btn-sm btn-outline-primary">
+									  Ver Post
+									</button>
+
+								</a>
+
+
 							</div>
 
 						</div>

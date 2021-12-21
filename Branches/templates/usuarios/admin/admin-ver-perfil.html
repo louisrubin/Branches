@@ -82,13 +82,9 @@
                                                             {% endif %}
                                                     </p>
 
-                        <a href="{% url 'usuarios:admin_editar' perfil.id %}">
-                            <button type="button" class="btn btn-outline-dark">Editar Usuario</button>
-                        </a>
+                        <a href="{% url 'usuarios:admin_editar' perfil.id %}" class="btn btn-outline-dark">Editar Usuario </a>
 
-                        <a href="{% url 'usuarios:delete_user' perfil.id %}">
-                            <button type="button" class="btn btn-outline-danger">Borrar Usuario</button>
-                        </a>
+                        <a href="{% url 'usuarios:delete_user' perfil.id %}" class="btn btn-outline-danger">Borrar Usuario </a>
 
                     
                 </div>

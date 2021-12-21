@@ -1,3 +1,9 @@
+{% extends 'base/base.html' %}
+
+{% block titulo %} <title>Contexto</title>{% endblock titulo %}
+
+{% block contenido %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,19 +19,25 @@
     </head>
 
 
-	<body>
+<body>
+    <main class="container py-6">
 		<div align="justify"><h5>Contexto</h5>
   				<p>
     				Dado que quedan menos de diez años para alcanzar los Objetivos de Desarrollo Sostenible, en la Cumbre sobre los ODS celebrada en septiembre de 2019, los líderes mundiales solicitaron un decenio de acción y resultados en favor del desarrollo sostenible, y prometieron movilizar la financiación, mejorar la aplicación a nivel nacional y reforzar las instituciones para lograr los Objetivos en la fecha prevista, el año 2030, sin dejar a nadie atrás.
   				</p>
 
   				<p>
-    			El Secretario General de las Naciones Unidas hizo un llamamiento para que todos los sectores de la sociedad se movilicen en favor de una década de acción en tres niveles: acción a nivel mundial para garantizar un mayor liderazgo, más recursos y soluciones más inteligentes con respecto a los Objetivos de Desarrollo Sostenible; acción a nivel local que incluya las transiciones necesarias en las políticas, los presupuestos, las instituciones y los marcos reguladores de los gobiernos, las ciudades y las autoridades locales; y acción por parte de las personas, incluidos la juventud, la sociedad civil, los medios de comunicación, el sector privado, los sindicatos, los círculos académicos y otras partes interesadas, para generar un movimiento imparable que impulse las transformaciones necesarias.
+    			    El Secretario General de las Naciones Unidas hizo un llamamiento para que todos los sectores de la sociedad se movilicen en favor de una década de acción en tres niveles: acción a nivel mundial para garantizar un mayor liderazgo, más recursos y soluciones más inteligentes con respecto a los Objetivos de Desarrollo Sostenible; acción a nivel local que incluya las transiciones necesarias en las políticas, los presupuestos, las instituciones y los marcos reguladores de los gobiernos, las ciudades y las autoridades locales; y acción por parte de las personas, incluidos la juventud, la sociedad civil, los medios de comunicación, el sector privado, los sindicatos, los círculos académicos y otras partes interesadas, para generar un movimiento imparable que impulse las transformaciones necesarias.
   				</p>
 
 		</div>
+    </main>
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
-	</body>
+</body>
 
-	{% include 'base/footer.html' %}
+{% endblock contenido %}
+
+{% include 'base/footer.html' %}

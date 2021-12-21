@@ -25,7 +25,7 @@ class Post_Form(forms.ModelForm):
 
 	class Meta:
 		model = Post
-		fields = {'titulo', 'cuerpo', 'es_borrador'}
+		fields = ['titulo', 'cuerpo', 'es_borrador']
 
 
 
@@ -55,29 +55,14 @@ def Editar_Post(request):
 
 
 
-# class Post_Form(forms.ModelForm):
-#     """Form definition for MODELNAME."""
-
-#     class Meta:
-#         """Meta definition for MODELNAMEform."""
-#         model = Post
-#         fields = ('titulo',
-#                 'cuerpo',
-#                 'es_borrador',
-#                 )
-#         labels = {
-#                 'titulo': 'Título',
-#                 'cuerpo':'Escribe aquí',
-#                 'es_borrador':'Borrador',
-#         }
-
 class Comment_Post(forms.ModelForm):
-	cuerpo = forms.CharField(
+	comentario = forms.CharField(
 		widget=forms.TextInput(attrs={
 			'class': 'col-sm-6'
 		})
+
     )
 
 	class Meta:
 		model = Comentario
-		fields = {'cuerpo'}
+		fields = ['comentario']
