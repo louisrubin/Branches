@@ -11,7 +11,12 @@ from apps.posts.forms import Comment_Post
 def objetivos(request):
     return render(request, 'objetivos.html')
 
-    
+def informacion(request):
+    return render(request, 'informacion.html')
+
+def contexto(request):
+    return render(request, 'contexto.html')
+
 def login(request):
     return render(request, 'login.html')
 

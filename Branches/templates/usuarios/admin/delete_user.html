@@ -12,9 +12,9 @@
 
                 <p>¿Eliminar el Usuario {{object.username}}?</p>
         
-                <button type="submit">Aceptar</button>
+                <button type="submit" class="btn btn-danger btn-lg">Borrar</button>
+                <a href="{% url 'usuarios:admin_listar' %}"  class="btn btn-secondary btn-lg">Cancelar</a>
             </form>
-            <a href="{% url 'usuarios:admin_listar' %}" type=""> <button> Cancelar </button> </a>
         </div>
         
     </main>

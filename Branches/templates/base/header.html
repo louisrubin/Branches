@@ -37,11 +37,11 @@
 					<li><a class="dropdown-item" href="{% url 'objetivos' %}">Paz, justicia e instituciones sólidas</a></li>
 					<li><a class="dropdown-item" href="{% url 'objetivos' %}">Alianzas para lograr los objetivos</a></li>
 				</ul>
-			
-			
+			<a href="{% url 'informacion' %}" class="float-md-start mb-0 nav-link px-2 text-white">Informacion</a>
+			<a href="{% url 'contexto' %}" class="float-md-start mb-0 nav-link px-2 text-white">Contexto</a>
 
 			{% if user.is_superuser or user.es_administrador %}
-				<a href="{% url 'usuarios:admin_listar' %}" class="float-md-start mb-0 nav-link px-2 text-white">Usuarios</a>
+				<a href="{% url 'usuarios:admin_listar' %}" class="float-md-start mb-0 nav-link px-2 text-white">Usuarios (Adm)</a>
 			{% endif %}
 
 
