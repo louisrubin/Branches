@@ -8,6 +8,7 @@ urlpatterns = [
     path('', views.usuarios, name='usuarios'),
     path("registro/", views.RegistroUsuario.as_view(), name="registro"),
     path("perfil/", views.PerfilUsuario.as_view(), name="perfil"),
+    path("editar/<int:pk>/", views.Editar_Own_Perfil.as_view(), name="editar_perfil"),
 
     # ADMIN
     path("admin/listar/", views.ListarAdmin.as_view(), name="admin_listar"),

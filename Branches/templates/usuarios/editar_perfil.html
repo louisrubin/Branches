@@ -1,0 +1,113 @@
+{% extends 'base/base.html' %}
+
+{% block titulo %}<title>Editar Perfil</title>{% endblock titulo %}
+
+{% load static %}
+
+{% block contenido %}
+   
+{% include "includes/form_errors.html" %}
+
+
+<style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+
+  
+  <!-- Custom styles for this template -->
+  <link href="signin.css" rel="stylesheet">
+<link type="text/css" rel="stylesheet" charset="UTF-8" href="https://translate.googleapis.com/translate_static/css/translateelement.css">
+</head>
+<body class="text-center">
+
+    
+	<div class="py-5 text-center">
+		<img class="d-block mx-auto mb-4" src="{% static 'person-circle.svg' %}" alt="" width="100rem" >
+		<h4>Editar Perfil</h4>
+		
+	</div>
+<form method="POST"> {% csrf_token %}
+
+    <div class="bg-light shadow-sm mx-auto text-white" style="width: 30%; border-radius: 21px 21px 0 0;">
+				
+        
+        {% for data in form %}
+            <a class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+                <div class="d-flex gap-2 w-100 justify-content-between">
+                
+                    <div>
+                        {{data.label}} {{data}}
+                    </div>
+                
+                </div>
+            </a>
+        {% endfor %}
+        
+        <div class="row">
+            <div class="col">
+                <button class="btn btn-outline-success" type="submit">Guardar</button>
+                <a class="btn btn-outline-secondary" href="{% url 'usuarios:perfil' %}" > Cancelar</a>
+            </div>
+        </div>
+            
+        
+    </div>
+</form>
+
+
+
+
+
+
+
+<!-- 
+<main class="form-signin">
+    <form method="post">{% csrf_token %}
+
+        {{form.as_p}}
+        
+        <div class="row">
+            <div class="col">
+                <button type="submit">Guardar</button>
+                <button type="button"> <a href="{% url 'usuarios:admin_listar' %}"> Cancelar</a> </button>
+            </div>
+        </div>
+
+    </form>
+
+</main> -->
+
+
+
+<!-- 
+<main class="container py-6">
+    <div class="container-xxl my-md-4 bd-layout">
+
+        <form method="post">{% csrf_token %}
+
+            {{form.as_p}}
+            
+            <div class="row">
+                <div class="col">
+                    <button type="submit">Guardar</button>
+                    <button type="button"> <a href="{% url 'usuarios:admin_listar' %}"> Cancelar</a> </button>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+</main> -->
+{% endblock contenido %}

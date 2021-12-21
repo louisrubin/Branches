@@ -22,7 +22,7 @@
         <div>
           <a href="{% url 'posts:agregar_posts' %}" >
             <button type="button"  class="btn btn-outline-light me-5"> 
-              <img src="{% static '/plus-lg.svg' %}"> Nuevo Post
+              <img src="{% static 'plus-square.svg' %}" style="width: 25px;"> Nuevo Post
             </button>
 			  </a>
 
@@ -52,7 +52,7 @@
 
 			<a href="{% url 'usuarios:perfil' %}">
 				<button type="button" class="btn btn-outline-light me-2">
-          <img src="{% static 'person-circle.svg' %}"> {{user.username}}</button>
+          <img src="{% static 'person-circle.svg' %}" style="width: 25px;"> {{user.username}}</button>
 			</a>
 
 			<a href="{% url 'logout' %}">

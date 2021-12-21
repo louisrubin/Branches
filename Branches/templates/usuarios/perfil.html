@@ -5,90 +5,117 @@
 {% load static %}
 
 {% block contenido %}
-    
 
+    
 <main>
-    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
-      <div class="col-md-5 p-lg-3 mx-auto my-5">
-        <img src="{% static 'person-circle.svg' %}" width="90rem">
-        <h1 class="display-4 fw-normal">{{user.username}}</h1>
-        <p class="lead fw-normal">perfil del usuario.</p>
-        <a class="btn btn-outline-secondary" href="{% url 'posts:mis_posts' %}" >Mis Posts</a>
-      </div>
-      <div class="product-device shadow-sm d-none d-md-block"></div>
-      <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+	<div class="d-flex flex-wrap justify-content-between align-items-center py-1 my-1" style="">
+	   <div class="col-md-2 d-flex align-items-center">
+	   </div>
+   
+	   	<ul class="nav col-md-3 justify-content-end list-unstyled d-flex">
+			<a class="btn btn-outline-secondary" href="{% url 'posts:mis_posts' %}" >Mis Posts</a>
+			<a class="btn btn-outline-secondary" href="{% url 'usuarios:editar_perfil' user.id %}" >Editar Perfil</a>
+	   	</ul>
+   	</div>
+    <!-- <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light"> -->
+		<div class="me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden" style="width: 100%;">
+			<!-- <div class="my-3 p-3"> -->
+<!-- 				
+					<img src="{% static 'person-circle.svg' %}" width="90rem">
+					<h1 class="display-4 fw-normal">{{user.username}}</h1>
+					<p class="lead fw-normal">perfil del usuario.</p>
+				 -->
+
+
+
+
+
+
+				<img src="{% static 'person-circle.svg' %}" width="100rem">
+			  	<h2 class="display-5">{{user.username}}</h2>
+			  	<p class="lead"> 
+				  	{% if user.is_superuser %}
+						SuperUser
+
+					{% else %}
+							
+						{% if user.es_administrador %}
+							Administrador
+						{% else %}
+							Usuario
+						{% endif %}
+								
+				  	{% endif %}
+				</p>
+				<div style="padding-bottom: 15px;">
+				   <a class="btn btn-outline-secondary" href="{% url 'posts:mis_posts' %}" >Mis Posts</a>
+				</div>
+			</div>
+			<div class="bg-dark shadow-sm mx-auto text-white" style="width: 30%; border-radius: 21px 21px 0 0;">
+				
+
+				<a class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+					<img src="{% static 'award-fill.svg' %}" alt="twbs" width="32" height="32" class="flex-shrink-0">
+					<div class="d-flex gap-2 w-100 justify-content-between">
+					 
+						<h6 class="mb-0">Usuario:</h6>
+
+						<div>
+							{{user.username}}
+						</div>
+					  
+					</div>
+				</a>
+
+
+				<a class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+					<img src="{% static 'file-earmark-person-fill.svg' %}" alt="twbs" width="32" height="32" class=" flex-shrink-0">
+					<div class="d-flex gap-2 w-100 justify-content-between">
+					  
+						<h6 class="mb-0">Nombre: </h6>
+						
+						<div>
+							{{user.first_name}}
+						</div>
+					  
+					</div>
+				</a>
+
+				<a class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+					<img src="{% static 'person-badge-fill.svg' %}" alt="twbs" width="32" height="32" class="flex-shrink-0">
+					<div class="d-flex gap-2 w-100 justify-content-between">
+					  
+						<h6 class="mb-0">Apellido: </h6>
+					  
+						<div>
+							{{user.last_name}}
+						</div>
+					</div>
+				</a>
+
+				<a class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+					<img src="{% static 'mail.svg' %}" alt="twbs" width="32" height="32" class="flex-shrink-0">
+					<div class="d-flex gap-2 w-100 justify-content-between">
+					  
+						<h6 class="mb-0">Correo: </h6>
+						
+						<div>
+							{{user.email}}
+						</div>
+					</div>
+				</a>
+
+				<!-- <p class="lead" style="padding-top: 30px;">Nombre: {{user.first_name}}</p>
+				<p class="lead"> hola</p> -->
+			</div>
+		  </div>
+
+<!--       
+		<div class="product-device shadow-sm d-none d-md-block"></div>
+		<div class="product-device product-device-2 shadow-sm d-none d-md-block"></div> -->
     </div>
   
-    <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
-      <!-- <div class="bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
-        <div class="my-3 py-3">
-          <h2 class="display-5">Another dasdas</h2>
-          <h2 class="display-5">Another asdasd</h2>
-          <h2 class="display-5">Another headline</h2>
-          <p class="lead">And an even wittier subheading.</p>
-        </div>
-        <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-      </div> -->
-      <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-        <div class="my-3 p-3">
-          <h2 class="display-5">Another headline</h2>
-          <p class="lead">And an even wittier subheading.</p>
-        </div>
-        <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-      </div>
-    </div>
-  
-    <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
-      <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-        <div class="my-3 p-3">
-          <h2 class="display-5">Another headline</h2>
-          <p class="lead">And an even wittier subheading.</p>
-        </div>
-        <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-      </div>
-      <div class="bg-primary me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
-        <div class="my-3 py-3">
-          <h2 class="display-5">Another headline</h2>
-          <p class="lead">And an even wittier subheading.</p>
-        </div>
-        <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-      </div>
-    </div>
-  
-    <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
-      <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-        <div class="my-3 p-3">
-          <h2 class="display-5">Another headline</h2>
-          <p class="lead">And an even wittier subheading.</p>
-        </div>
-        <div class="bg-body shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-      </div>
-      <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-        <div class="my-3 py-3">
-          <h2 class="display-5">Another headline</h2>
-          <p class="lead">And an even wittier subheading.</p>
-        </div>
-        <div class="bg-body shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-      </div>
-    </div>
-  
-    <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
-      <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-        <div class="my-3 p-3">
-          <h2 class="display-5">Another headline</h2>
-          <p class="lead">And an even wittier subheading.</p>
-        </div>
-        <div class="bg-body shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-      </div>
-      <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-        <div class="my-3 py-3">
-          <h2 class="display-5">Another headline</h2>
-          <p class="lead">And an even wittier subheading.</p>
-        </div>
-        <div class="bg-body shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-      </div>
-    </div>
-  </main>
+</main>
 
 
 {% endblock contenido %}

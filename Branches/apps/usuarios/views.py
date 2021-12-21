@@ -1,4 +1,4 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.db                  import models
 from django.shortcuts           import render
 from django.urls                import reverse_lazy
@@ -22,6 +22,18 @@ class PerfilUsuario(LoginRequiredMixin, ListView):
 
     context_object_name = "usuario_data"
 
+
+class Editar_Own_Perfil(LoginRequiredMixin, UpdateView):
+    model = Usuario
+    fields = ['username','first_name', 'last_name', 'email']
+    template_name = 'usuarios/editar_perfil.html'
+
+    def get_success_url(self):
+        return reverse_lazy('usuarios:perfil')
+
+    # def test_func(self):
+    #     user = self.get_object()
+    #     return self.request.user == user.username
 
 class ListarAdmin(LoginRequiredMixin, AdminRequiredMixins, ListView):
     template_name = "usuarios/admin/listar.html"
