@@ -15,8 +15,8 @@
         <body>
     {% include 'base/header.html' %}
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                {% comment %} <div class="container-fluid">
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul class="navbar-nav">
                             <li class="nav-item">
@@ -35,29 +35,29 @@
                                 Objetivos
                                 </a>
                                 
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="objetivos/">Fin de la pobreza</a></li>
-                            <li><a class="dropdown-item" href="objetivos/">Hambre cero</a></li>
-                            <li><a class="dropdown-item" href="objetivos/">Salud y bienestar</a></li>
-                            <li><a class="dropdown-item" href="objetivos/">Educación de calidad</a></li>
-                            <li><a class="dropdown-item" href="objetivos/">Igualdad de género</a></li>
-                            <li><a class="dropdown-item" href="objetivos/">Agua limpia y saneamiento</a></li>
-                            <li><a class="dropdown-item" href="objetivos/">Energía asequible y no contaminante</a></li>
-                            <li><a class="dropdown-item" href="objetivos/">Trabajo decente y crecimiento económico</a></li>
-                            <li><a class="dropdown-item" href="objetivos/">Agua, industria, innovación e insfraestructura</a></li>
-                            <li><a class="dropdown-item" href="objetivos/">Reducción de las desigualdades</a></li>
-                            <li><a class="dropdown-item" href="objetivos/">Ciudades y comunidades sostenibles</a></li>
-                            <li><a class="dropdown-item" href="objetivos/">Producción y consumos responsables</a></li>
-                            <li><a class="dropdown-item" href="objetivos/">Acción por el clima</a></li>
-                            <li><a class="dropdown-item" href="objetivos/">Vida submarina</a></li>
-                            <li><a class="dropdown-item" href="objetivos/">Vida de ecocistemas terrestres</a></li>
-                            <li><a class="dropdown-item" href="objetivos/">Paz, justicia e instituciones sólidas</a></li>
-                            <li><a class="dropdown-item" href="objetivos/">Alianzas para lograr los objetivos</a></li>
-                        </ul>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="objetivos/">Fin de la pobreza</a></li>
+                                    <li><a class="dropdown-item" href="objetivos/">Hambre cero</a></li>
+                                    <li><a class="dropdown-item" href="objetivos/">Salud y bienestar</a></li>
+                                    <li><a class="dropdown-item" href="objetivos/">Educación de calidad</a></li>
+                                    <li><a class="dropdown-item" href="objetivos/">Igualdad de género</a></li>
+                                    <li><a class="dropdown-item" href="objetivos/">Agua limpia y saneamiento</a></li>
+                                    <li><a class="dropdown-item" href="objetivos/">Energía asequible y no contaminante</a></li>
+                                    <li><a class="dropdown-item" href="objetivos/">Trabajo decente y crecimiento económico</a></li>
+                                    <li><a class="dropdown-item" href="objetivos/">Agua, industria, innovación e insfraestructura</a></li>
+                                    <li><a class="dropdown-item" href="objetivos/">Reducción de las desigualdades</a></li>
+                                    <li><a class="dropdown-item" href="objetivos/">Ciudades y comunidades sostenibles</a></li>
+                                    <li><a class="dropdown-item" href="objetivos/">Producción y consumos responsables</a></li>
+                                    <li><a class="dropdown-item" href="objetivos/">Acción por el clima</a></li>
+                                    <li><a class="dropdown-item" href="objetivos/">Vida submarina</a></li>
+                                    <li><a class="dropdown-item" href="objetivos/">Vida de ecocistemas terrestres</a></li>
+                                    <li><a class="dropdown-item" href="objetivos/">Paz, justicia e instituciones sólidas</a></li>
+                                    <li><a class="dropdown-item" href="objetivos/">Alianzas para lograr los objetivos</a></li>
+                                </ul>
                             </li>
                         </ul>
                     </div>
-                </div>
+                </div> {% endcomment %}
             </nav>
                 
     {% block contenido %}
@@ -65,46 +65,15 @@
     
     {% endblock contenido %}
 
-    {% if is_paginated %}
-        <nav aria-label="Page navigation example">
-                <ul class="pagination justify-content-center">
-                
-                    {% if page_obj.number == 1 %}
-                        <li class="page-item disabled">
-                            <a class="page-link">Anterior</a>
-                        </li>
-                    {% else %}
-                        <li class="page-item"><a class="page-link" href="?page={{page_obj.previous_page_number}}"Anterior></a></li>
-                    {% endif %}
-
-                {% for i in paginator.page_range %}
-                    {% if i > page_obj.number|add:'-1' and i < page_obj.number|add:'1' %}
-                        <li class="page-item"><a class="page-link" href="#"{{i}}></a></li>
-                    {% endif%}
-                {% endfor %}
-
-                {% if page_obj.number == paginator.num_pages %}
-                    <li class="page-item disabled">
-                        <a class="page-link">Siguiente</a>
-                    </li>
-                {% else %}
-                    <li class="page-item">
-                        <a class="page-link" href="?page={{page_obj.next_page_number}}"Siguiente>
-                        </a>
-                    </li>
-                {% endif %}
-                </ul>
-            </nav>
-    {% endif %}
-
+    {% include 'includes/paginated.html' %}
 
     {% include 'base/footer.html' %}
 
 
-    <!-- JavaScript Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
-        </body>
+            <!-- JavaScript Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
+    </body>
 
 
 </html>
