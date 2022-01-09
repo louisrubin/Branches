@@ -11,9 +11,6 @@
 </style>
 
 
-
-	<main class="container py-6">
-	</main>
 	
 	
 <main class="container" style="width: 100%;">
@@ -48,7 +45,7 @@
 					</div>
 				{% endif %}
 				
-				{% for coment in comments %}
+				{% for comment in comments %}
 					<div class="card">
 									
 						<div class="card-body">	
@@ -61,7 +58,7 @@
 				
 			{% endfor %}
 		</div>
-    
+<!--     
       <div class="col-md-6 px-0">
 			<img src="static/objetivos/img_obj_comp.jpg" width="200%" height="250" preserveAspectRatio="xMidYMid slice" focusable="false"> 
 			</div>
@@ -300,9 +297,63 @@
           <a href="objetivos/" class="stretched-link"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">sigue leyendo</font></font></a>
         </div>
         <div class="col-auto d-none d-lg-block">
-          <img src="static/objetivos/objetivo17.jpg" width="200" height="250" preserveAspectRatio="xMidYMid slice" focusable="false"> 
+          <img src="static/objetivos/objetivo17.jpg" width="200" height="250" preserveAspectRatio="xMidYMid slice" focusable="false">  -->
 </main>  
 
+
+
+{% for post in posts %}
+		
+	<div class="container mt-5 mb-5">
+		<div class="row d-flex align-items-center justify-content-center">
+			<div class="col-md-6">
+				<div class="card">
+					<div class="d-flex justify-content-between p-2 px-3">
+						<div class="d-flex flex-row align-items-center"> <img src="https://i.imgur.com/UXdKE3o.jpg" width="50" class="rounded-circle">
+							<div class="d-flex flex-column ml-2"> <span class="font-weight-bold">{{post.autor}}</span> <small class="text-primary">Collegues</small> </div>
+						</div>
+						<div class="d-flex flex-row mt-1 ellipsis"> <small class="mr-2">{{post.fecha_creacion}}</small> <i class="fa fa-ellipsis-h"></i> </div>
+					</div> <img src="https://i.imgur.com/xhzhaGA.jpg" class="img-fluid">
+					<div class="p-2">
+						<p class="text-justify">{{post.cuerpo}}</p>
+						<hr>
+						<div class="d-flex justify-content-between align-items-center">
+							<div class="d-flex flex-row icons d-flex align-items-center"> 
+								<i class="fa fa-heart"></i> 
+								<!-- <i class="fa fa-smile-o ml-2"></i>  -->
+							</div>
+							<div class="d-flex flex-row muted-color"> <span>2 comments</span> <span class="ml-2">Share</span> </div>
+						</div>
+						<hr>
+						<div class="comments">
+							<!-- <div class="d-flex flex-row mb-2"> <img src="https://i.imgur.com/9AZ2QX1.jpg" width="40" class="rounded-image">
+								<div class="d-flex flex-column ml-2"> <span class="name">Daniel Frozer</span> <small class="comment-text">I like this alot! thanks alot</small>
+									<div class="d-flex flex-row align-items-center status"> <small>Like</small> <small>Reply</small> <small>Translate</small> <small>18 mins</small> </div>
+								</div>
+							</div> -->
+							
+							
+							{% for comment in post.Comentario %}
+								<div class="d-flex flex-row mb-2"> <img src="https://i.imgur.com/1YrCKa1.jpg" width="40" class="rounded-image">
+									<div class="d-flex flex-column ml-2"> <span class="name">{{comment.autor}}</span> <small class="comment-text">{{comment.comentario}}</small>
+										<div class="d-flex flex-row align-items-center status"> <small>Like</small> <small>Reply</small> <small>Translate</small> <small>{{comment.fecha_creacion}}</small> </div>
+									</div>
+								</div>
+
+							{% endfor %}
+								
+							<div class="comment-input"> <input type="text" class="form-control">
+								<div class="fonts"> <i class="fa fa-camera"></i> </div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	
+{% endfor %}
 
 
 {% endblock contenido %}

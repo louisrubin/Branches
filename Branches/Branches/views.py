@@ -29,7 +29,7 @@ class Inicio(ListView):
 
     template_name = "index.html"
     model = Post
-    context_object_name = "posts"   
+    context_object_name = "posts"
 
   
     def get_queryset(self):
